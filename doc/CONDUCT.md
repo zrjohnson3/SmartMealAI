@@ -113,6 +113,10 @@ individual, or aggression toward or disparagement of classes of individuals.
 **Consequence**: A permanent ban from any sort of public interaction within the
 community.
 
+## Meeting Times and Locations
+
+The team will be meeting in person on Mondays at around 3:45 pm. We will be meeting in the library preferably in a study room. The team will also have online meetings on Wednesdays and Fridays at around 3 pm.
+
 ## Attribution
 
 This Code of Conduct is adapted from the [Contributor Covenant][homepage],
