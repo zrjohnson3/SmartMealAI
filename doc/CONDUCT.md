@@ -115,7 +115,7 @@ community.
 
 ## Meeting Times and Locations
 
-The team will be meeting in person on Mondays at around 3:45 pm. We will be meeting in the library preferably in a study room. The team will also have online meetings on Wednesdays and Fridays at around 3 pm.
+The team will be meeting in person on Mondays at around 3:45 pm. We will be meeting in the library preferably in a study room. The team will also have online meetings on Wednesdays at around 6 pm and Fridays at around 3 pm.
 
 ## Attribution
 
