@@ -139,19 +139,32 @@ For answers to common questions about this code of conduct, see the FAQ at
 # Team Code of Conduct
 You must have in the Code Of Conduct the 305Soft policy of no distracted use use technology (e.g. phones away) during all team meetings.
 
-Decisions (How will they be made? Majority, consensus, other?)
+**Decisions (How will they be made? Majority, consensus, other?)**
+Majority, if the vote is split between 2 options, with 1 person being neutral, a coin flip with determine the outcome.
 
-Attendance (What are your expectations for the frequency and type of attendance?; What are legitimate reasons for missing? What do missing members have to do to make up for missed meetings)
+**Attendance (What are your expectations for the frequency and type of attendance?**
+Everyone should at least be able to show up to the online meetings.
 
-Assignments (How will assignments be made? How will the group deal with members who do not complete (or poorly complete assignments?)
+**What are legitimate reasons for missing? What do missing members have to do to make up for missed meetings)**
+Legitimate reasons for missing meeting are similar to the attendance policy in class (sickness, car issues, internet issues, appointments, etc.). If you are going to miss a meeting, let everyone know ahead of time either by discord or group chat. Making up for meetings depends on what those who showed up believe is fair, whether that be taking a certain assignment or something.
 
-Participation (How will you communicate and share information; How will you ensure full participation of everyone? How will you honor member strengths and interests)?
+**Assignments (How will assignments be made? How will the group deal with members who do not complete (or poorly complete assignments?)**
+Assignments will be first come first serve, if someone wants to work on a certain assignment they can, so long as it's not already being worked on. If no one wants to work on an assignment, then it will be given to whoever is available or someone will be randomly assigned to it.
 
-Meeting Times and Locations/Mediums (How will you decide on locations and times that suit all members)?
+**Participation (How will you communicate and share information; How will you ensure full participation of everyone? How will you honor member strengths and interests)?**
+General communication can be done through discord. Ensuring that everyone participates will be based around assignments given out, everyone should have something to do, if not then they should help someone else with their assignment. Strengths and interests can be weighed by who gets what assignments, if someone gets an assignment, but you have a burning passion for it, then you can either elect to work together, or you can trade assignments, given that both parties give written consent. 
 
-Agenda and Minutes /Notes (Who will take them how will they be shared?)
+**Meeting Times and Locations/Mediums (How will you decide on locations and times that suit all members)?**
+Meeting Times are based on schedules, the times have been voted on and if they need to be changed, ask in the "schedules" chat on discord and we can try to change the time. Online meetings will be held on Discord.
 
-Promptness (What do you expect and how will you handle lateness?)
+**Agenda and Minutes /Notes (Who will take them how will they be shared?)**
+The meeting agenda will be the SCRUM meeting, having everyone talk about what they're working on, then if anyone needs help or assistance then it can be discussed, afterwards for those who have finished their assignments, next steps and assignments can be discussed. Those in need of assistance can stay back after the meeting to get additional assistance. Online meetings will be recorded and uploaded (given they are around 30 mins long) to a youtube channel dedicated to the assignment, link will be posted in the "links" chat on Discord.
 
-Conversational Courtesies (How will the team encourage and reinforce active listening, sharing of the airtime, tangents, respectful dialogue, etc )
-Enforcement/ Feedback (How will the team enforce its own rules? How do individuals prefer to give and receive feedback?)
+**Promptness (What do you expect and how will you handle lateness?)**
+People should join meetings early or on time, lateness by a few minutes is fine, if you're more than 10+ mins late to an online meeting, then you'll have to refer to the recording to see what you missed. Lateness for in person meetings depends on the time available for everyone present, if everyone is able to stay and catch you up what you missed then great, however if people need to leave, then try to catch yourself up or ask in the discord.
+
+**Conversational Courtesies (How will the team encourage and reinforce active listening, sharing of the airtime, tangents, respectful dialogue, etc )**
+When someone is talking about what they're currenting working on, everyone should be quiet and wait for them to finish speaking before asking questions or moving on. We must make sure everyone gets the chance to speak, if someone hasn't said anything, be sure to ask them if they have anything to add or ask. Don't leave anyone behind, don't change the topic of conversation till everyone is all set with the current topic.
+
+**Enforcement/ Feedback (How will the team enforce its own rules? How do individuals prefer to give and receive feedback?)**
+Everyone should hold each other accountable, if someone isn't pulling their weight then speak to them respectfully and as a person, everything is negotiable and there can always be a compromise. Giving and receiving feedback can be discussed in meetings when discussing assignments.
