@@ -178,3 +178,5 @@ When someone is talking about what they're currenting working on, everyone shoul
 **Enforcement/ Feedback (How will the team enforce its own rules? How do individuals prefer to give and receive feedback?)**
 
 Everyone should hold each other accountable, if someone isn't pulling their weight then speak to them respectfully and as a person, everything is negotiable and there can always be a compromise. Giving and receiving feedback can be discussed in meetings when discussing assignments.
+
+![Team Signatures](../assets/team_signatures_new3.jpg)
