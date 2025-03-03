@@ -4,9 +4,9 @@
   - Team Action (if any): Create a customizable meal plan generator that can generate meal plans based on user's information and goals. 
  
 - Jack Reedy Observation:
-  - Observation Statement:
-  - Supporting Data:
-  - Team Action (if any):
+  - Observation Statement: A majority of people are somewhat or very likely to use the app, however, fewer people are willing to buy a premium version of it.
+  - Supporting Data: The average likelihood of app usage eis 5.75 on a scale of 1 to 10, whereas the average likelihood of purchasing the premium version is only 3.46. Also, 12.5% of people rated the app usage liklihood as a 10, but only 8.3% gave a high likelihood for premium purchase.
+  - Team Action (if any): Potentially give additional value to a potential premium version, in an attempt to convert more active users into paying customers.
  
 - Qiang Dong Observation:
   - Observation Statement:High demand exists for automated features that simplify meal planning and grocery shopping among busy individuals. 
