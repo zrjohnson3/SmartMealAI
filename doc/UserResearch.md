@@ -16,7 +16,7 @@
 - Samuel Raheb Observation:
   - Observation Statement: Most people want to lose or gain weight
   - Supporting Data: 15/24 people who took the survey answered that for their goals, they would like to lose or gain weight
-  - Team Action (if any): The app could form their meal plans based on the caloric intake that the user needs in order to reach their goal weight in a healthy way
+  - Team Action (if any): The app could form the user's meal plans based on the caloric intake that the user needs in order to reach their goal weight in a healthy way
 
 - Anthony Pellicone Observation:
   - Observation Statement: Users would like a feature to have a type of barcode scanner that would return nutrition facts 
