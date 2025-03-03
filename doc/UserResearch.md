@@ -1,7 +1,7 @@
 - Zach Johnson Observation:
-  - Observation Statement:
-  - Supporting Data:
-  - Team Action (if any):
+  - Observation Statement: Users all liked the idea of inputting grocery lists and having customized meals created with budget considerations.
+  - Supporting Data: 20/24 users said budget considerations were important to them. Also, 9 users said they wanted to have some sort of customized meal plan geeneration. 
+  - Team Action (if any): Create a customizable meal plan generator that can generate meal plans based on user's information and goals. 
  
 - Jack Reedy Observation:
   - Observation Statement:
