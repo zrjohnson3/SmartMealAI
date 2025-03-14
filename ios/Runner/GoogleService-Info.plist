@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>265487456600-oovrrsrvh0sl5fun45qhe1dt7n5nm07h.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.265487456600-oovrrsrvh0sl5fun45qhe1dt7n5nm07h</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>265487456600-sjfadrn2g4vsl9lfklt8j4ekvush2b6q.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAH9X_TUAk3bW7Rh0rIBKcZgqjCl22pwzg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>265487456600</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mycompany.smartmealai</string>
+	<key>PROJECT_ID</key>
+	<string>smartmealai-f7fdb</string>
+	<key>STORAGE_BUCKET</key>
+	<string>smartmealai-f7fdb.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:265487456600:ios:6a96943ba854a057816d2d</string>
+</dict>
+</plist>
