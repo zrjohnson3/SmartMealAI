@@ -1,4 +1,3 @@
-[HEART framework](https://docs.google.com/presentation/d/1LoHqij2aKoj_UmXh4wUQEc_CQnoW8cLxyOgLZfQxe4I/edit?usp=sharing)
 # Metrics Documentation
 
 To better understand our application's usability and user engagement, we use the Google HEART framework as outlined in our [HEART framework](https://docs.google.com/presentation/d/1LoHqij2aKoj_UmXh4wUQEc_CQnoW8cLxyOgLZfQxe4I/edit?usp=sharing)
