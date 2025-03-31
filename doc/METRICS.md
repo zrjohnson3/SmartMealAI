@@ -28,6 +28,7 @@ Below are the methods we use to collect data for each metric:
 - **Adoption**: Measured by the number of new authentication sign-ups in Firebase, which automatically logs these events.
   
 - **DAU**: Tracked by Firebase Analytics by counting the number of unique users who engage with the app daily.
+    Firebase Analytics shows amount of active users, and average active user engagement time.
   
 - **Retention**: Measured by analyzing user logins over a period to determine the percentage of returning users. This is tracked via Firebase authentication timestamps.
   
