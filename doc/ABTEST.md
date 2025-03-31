@@ -84,3 +84,5 @@ Variations:
         Tapping the button will call the same AI function to regenerate a new plan with the same preferences.
 
         Optional: Animate button to attract attention on first view.
+
+        Allow users in Variant B to select specific meals to keep and others to regenerate. This partial regeneration can increase the sense of control and personalization, possibly enhancing user satisfaction and engagement further.
