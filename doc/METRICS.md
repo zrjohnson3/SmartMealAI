@@ -17,7 +17,13 @@ Our application tracks the following metrics to monitor performance and user sat
 
 Below are the methods we use to collect data for each metric:
 
-- **NPS**: Collected via a pop-up survey that appears at the end of the Golden Path. The user's response is recorded in our database associated with their user ID.
+- **NPS (Net Promoter Score)** - how to collect:
+
+    NPS is collected via a custom FlutterFlow component that pops up after the user's 5th login (tracked using a custom counter stored in Firebase         under each user's document).
+
+    When the pop-up appears, the user's score (0–10) and optional feedback are written to a nps_responses subcollection in Firestore, along with their     user_id, timestamp, and number of logins.
+
+    Firebase Analytics also logs a custom event nps_submitted to allow cross-analysis with session engagement data.
   
 - **Adoption**: Measured by the number of new authentication sign-ups in Firebase, which automatically logs these events.
   
