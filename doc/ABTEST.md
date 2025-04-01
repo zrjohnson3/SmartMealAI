@@ -86,7 +86,7 @@ Variations:
         Optional: Animate button to attract attention on first view.
 
         Allow users in Variant B to select specific meals to keep and others to regenerate. This partial regeneration can increase the sense of control and personalization, possibly enhancing user satisfaction and engagement further.
-
+***
 
 *Author: Jack Reedy*
 
@@ -162,4 +162,88 @@ Variations:
 
         Optionally, allow users to provide specific feedback (e.g., "Why did you like or dislike this meal?") to further refine future suggestions.
 
+
+
         Ratings influence the personalization of future meal suggestions (e.g., better meal choices based on previous feedback).
+***
+
+*Author: Anthony Pellicone*
+
+A/B Test Name: Meal Ingredients in Full View vs. Detailed View
+User Story Number: US7 (Meal Display Preferences)
+```
+Metrics (HEART Framework):
+Happiness: User satisfaction rating with meal display format
+
+Engagement: Number of users interacting with the meal details
+
+Task Success: Percentage of users who complete a meal selection
+
+Hypothesis:
+Displaying meal ingredients in the full meal view will improve user satisfaction and engagement because users can quickly assess whether a meal fits their preferences without needing extra clicks.
+```
+What Problem Are We Trying to Solve? Currently, the ingredients are displayed in the full meal view. Some users may find this additional step inconvenient, leading to frustration or decreased interaction with meal details,
+as users may only want to see information like the cuisine type.
+
+User Feedback/Observed Behavior:
+Some users abandon the selection process if they cannot quickly assess meal suitability.
+
+Users expect key meal information to be immediately visible without extra navigation.
+
+Others prefer a cleaner interface with fewer details upfront, accessing ingredients only when needed.
+
+Impact:
+This friction point may reduce user engagement and the likelihood of users completing meal selections. It could also affect meal plan retention rates, as users who don’t immediately see relevant ingredients may disengage.
+
+Experiment:
+    Audience Split:
+    
+        50% of users (Variant A) see ingredients displayed directly in the full meal view.
+        
+        50% of users (Variant B - Control) only see ingredients when clicking on a meal for details.
+        
+        Eligibility:
+        All logged-in users who view at least one meal.
+        
+        Tooling:
+        Firebase Remote Config to control feature exposure.
+        
+        Track user group assignment with a meal_display_variant parameter (A or B).
+        
+        Firebase Analytics Events:
+        meal_viewed
+        
+        meal_ingredients_visible (Variant A only)
+        
+        meal_clicked_for_details (Variant B only)
+        
+        meal_selected
+        
+        meal_abandoned
+        
+        meal_screen_duration
+        
+        Success Indicators:
+        Higher meal selection rate in Variant A (indicating reduced friction).
+        
+        Higher meal screen duration in Variant A (users engaging more with visible information).
+        
+        Fewer abandoned meals in Variant A.
+        
+        Higher satisfaction ratings in a post-test survey.
+
+Variations:
+    Variant A (Test Group - Ingredients in Full View):
+    
+        Ingredients are always visible in the full meal view.
+        
+        No need to tap to see ingredients.
+        
+Variant B (Control - Ingredients in Detailed View):
+
+        Ingredients are only visible when the user clicks on the meal.
+
+        Existing meal browsing experience remains unchanged.
+
+Conclusion:
+If Variant A results in higher engagement and satisfaction, we may consider making ingredient visibility a default or allowing users to toggle their preference. 
