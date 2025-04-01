@@ -34,7 +34,9 @@ Below are the methods we use to collect data for each metric:
   
 - **CTR for an event on the Golden Path**: Tracked using Firebase Analytics with a custom event that logs clicks on the specified event. The event ID and user interaction are recorded for analysis.
   
-- **Average number of new ToDo tasks created per active user each day**: This metric is specifically tracked by counting the number of tasks created by users who log in daily, recorded in our backend database. The data is aggregated daily to monitor active engagement within our app.
+- **Average number of new meal created each day per user**: This metric is specifically tracked by counting the number of meals created by users who log in daily, recorded in our backend database. The data is aggregated daily to monitor active engagement within our app, it will help
+  to showcase how many users are actually using our application for its intended purposes, opposed to merely logging in. This metric will be useful for us to scale our application as well as keep track of user engagement. It can be further expanded upon by keeping track of a range of dates in which
+  user continuously visited our application. 
 
 ### FlutterFlow Automatic Metrics Logging
 
