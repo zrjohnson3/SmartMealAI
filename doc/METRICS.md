@@ -11,7 +11,7 @@ Our application tracks the following metrics to monitor performance and user sat
 3. **DAU (Daily Active Users)**
 4. **Retention**
 5. **CTR (Click-Through Rate) for an event on the Golden Path**
-6. **Average number of new ToDo tasks created per active user each day**
+6. **Average number of new meals generated per day**
 
 ### Metrics Collection Methods
 
