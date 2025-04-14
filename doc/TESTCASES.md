@@ -8,7 +8,7 @@
 
 <[Link to slide](https://docs.google.com/presentation/d/1hVFTum8cRLSwypVGYws4c6WLIS9jvgsdQ9vSnjde9UY/edit?usp=sharing)> US5: Nutrition Tracker Dashboard
 
-<[Link to slide](https://docs.google.com/presentation/d/1-eqJvyaFsjcQZyahpUcElsfQ9Id_nCzPaJzKrOqXLA0/edit?usp=sharing)> US6: Profile Page
+<[Link to slide](https://docs.google.com/presentation/d/1ZwpFf3c9a8BB0WxGeq9qlS1RAM7bJOUrqs2M6SZH4WU/edit?usp=sharing)> US6: Profile Page
 
 <[Link to slide](https://docs.google.com/presentation/d/1kk0IWuysRLvpXTD9Wm2LU9-3wjEIaqxPWSg7nE8EPkE/edit?usp=sharing) US7: Metrics and Analytics using Firebase
 
