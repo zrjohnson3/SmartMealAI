@@ -99,7 +99,7 @@ void main() async {
         find.byKey(const ValueKey('password_CreateConfirm_g8z7')), 'pswd123');
     await tester.tap(find.byKey(const ValueKey('Get_Started_Button_ji47')));
     await tester.pumpAndSettle(const Duration(milliseconds: 4000));
-    expect(find.text('Account already exists'), findsOneWidget);
+    expect(find.text('Error: The email is already in use'), findsOneWidget);
   });
 }
 
