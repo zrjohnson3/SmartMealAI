@@ -1,6 +1,6 @@
 <[Link to slide](https://docs.google.com/presentation/d/1-eqJvyaFsjcQZyahpUcElsfQ9Id_nCzPaJzKrOqXLA0/edit?usp=sharing)> US1: User Account Creation
 
-<[Link to slide](https://docs.google.com/presentation/d/1nzamkiPUZAbLyE1THHClRDpbZQUi0pxZEgfODVO7518/edit?usp=sharing)> US2: Login
+<[Link to slide](https://docs.google.com/presentation/d/1bPUt-5Ld8vz5NdWF6JhZQIQxbkvbVDxqgOHjo8mOyK8/edit?usp=sharing)> US2: Login
 
 <[Link to slide](https://docs.google.com/presentation/d/1wjUaKkW8TYhXkFqopnhDZxVw-uotdWIvUbJvGPgnoAE/edit?usp=sharing)> US3: Backend Setup
 
