@@ -4,7 +4,7 @@
 
 <[Link to slide](https://docs.google.com/presentation/d/1wjUaKkW8TYhXkFqopnhDZxVw-uotdWIvUbJvGPgnoAE/edit?usp=sharing)> US3: Backend Setup
 
-<[Link to slide](https://docs.google.com/presentation/d/1-eqJvyaFsjcQZyahpUcElsfQ9Id_nCzPaJzKrOqXLA0/edit?usp=sharing)> US4: Golden Path
+<[Link to slide]([https://docs.google.com/presentation/d/1-eqJvyaFsjcQZyahpUcElsfQ9Id_nCzPaJzKrOqXLA0/edit?usp=sharing](https://docs.google.com/presentation/d/1WRRCCZePfPJZkxL3pJpdWjOg9wuGZOdJCIKxOznknbg/edit?usp=sharing))> US4: Golden Path
 
 <[Link to slide](https://docs.google.com/presentation/d/1hVFTum8cRLSwypVGYws4c6WLIS9jvgsdQ9vSnjde9UY/edit?usp=sharing)> US5: Nutrition Tracker Dashboard
 
