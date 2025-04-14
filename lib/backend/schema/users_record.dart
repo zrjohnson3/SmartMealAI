@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -50,6 +51,26 @@ class UsersRecord extends FirestoreRecord {
   DateTime? get birthday => _birthday;
   bool hasBirthday() => _birthday != null;
 
+  // "login_count" field.
+  int? _loginCount;
+  int get loginCount => _loginCount ?? 0;
+  bool hasLoginCount() => _loginCount != null;
+
+  // "net_promoter_score" field.
+  List<double>? _netPromoterScore;
+  List<double> get netPromoterScore => _netPromoterScore ?? const [];
+  bool hasNetPromoterScore() => _netPromoterScore != null;
+
+  // "feedback" field.
+  List<String>? _feedback;
+  List<String> get feedback => _feedback ?? const [];
+  bool hasFeedback() => _feedback != null;
+
+  // "last_meal_creation" field.
+  DateTime? _lastMealCreation;
+  DateTime? get lastMealCreation => _lastMealCreation;
+  bool hasLastMealCreation() => _lastMealCreation != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -58,6 +79,10 @@ class UsersRecord extends FirestoreRecord {
     _createdTime = snapshotData['created_time'] as DateTime?;
     _phoneNumber = snapshotData['phone_number'] as String?;
     _birthday = snapshotData['birthday'] as DateTime?;
+    _loginCount = castToType<int>(snapshotData['login_count']);
+    _netPromoterScore = getDataList(snapshotData['net_promoter_score']);
+    _feedback = getDataList(snapshotData['feedback']);
+    _lastMealCreation = snapshotData['last_meal_creation'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -101,6 +126,8 @@ Map<String, dynamic> createUsersRecordData({
   DateTime? createdTime,
   String? phoneNumber,
   DateTime? birthday,
+  int? loginCount,
+  DateTime? lastMealCreation,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -111,6 +138,8 @@ Map<String, dynamic> createUsersRecordData({
       'created_time': createdTime,
       'phone_number': phoneNumber,
       'birthday': birthday,
+      'login_count': loginCount,
+      'last_meal_creation': lastMealCreation,
     }.withoutNulls,
   );
 
@@ -122,13 +151,18 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
 
   @override
   bool equals(UsersRecord? e1, UsersRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.email == e2?.email &&
         e1?.displayName == e2?.displayName &&
         e1?.photoUrl == e2?.photoUrl &&
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
         e1?.phoneNumber == e2?.phoneNumber &&
-        e1?.birthday == e2?.birthday;
+        e1?.birthday == e2?.birthday &&
+        e1?.loginCount == e2?.loginCount &&
+        listEquality.equals(e1?.netPromoterScore, e2?.netPromoterScore) &&
+        listEquality.equals(e1?.feedback, e2?.feedback) &&
+        e1?.lastMealCreation == e2?.lastMealCreation;
   }
 
   @override
@@ -139,7 +173,11 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.uid,
         e?.createdTime,
         e?.phoneNumber,
-        e?.birthday
+        e?.birthday,
+        e?.loginCount,
+        e?.netPromoterScore,
+        e?.feedback,
+        e?.lastMealCreation
       ]);
 
   @override

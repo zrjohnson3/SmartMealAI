@@ -39,10 +39,54 @@
               "client_type": 3
             },
             {
-              "client_id": "265487456600-oovrrsrvh0sl5fun45qhe1dt7n5nm07h.apps.googleusercontent.com",
+              "client_id": "265487456600-f5tnouausq26uerfojhd663gc8qn7rf5.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.mycompany.smartmealai"
+                "bundle_id": "com.uricsc305.SmartMealAI"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265487456600:android:005e0e44373861ba816d2d",
+        "android_client_info": {
+          "package_name": "com.uricsc305.SmartMealAI"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265487456600-3j2aieuos8mu8r03n936a9cng4555k5c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uricsc305.SmartMealAI",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "265487456600-hf4iblelvdo5746hi5mlgsb7j84m7uep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3dbW4pAQf0mGjwMi__A12cn-dt5PTimY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265487456600-hf4iblelvdo5746hi5mlgsb7j84m7uep.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "265487456600-f5tnouausq26uerfojhd663gc8qn7rf5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.uricsc305.SmartMealAI"
               }
             }
           ]

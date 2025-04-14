@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 import '/index.dart';
@@ -70,19 +69,21 @@ class AppStateNotifier extends ChangeNotifier {
   }
 }
 
-GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
+GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
+    GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? GetStartedWidget() : GetStartedWidget(),
+      errorBuilder: (context, state) => appStateNotifier.loggedIn
+          ? entryPage ?? DashboardWidget()
+          : GetStartedWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? GetStartedWidget()
+              ? entryPage ?? DashboardWidget()
               : GetStartedWidget(),
         ),
         FFRoute(
@@ -96,14 +97,29 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => CreateAccountTest1Widget(),
         ),
         FFRoute(
-          name: LoginWidget.routeName,
-          path: LoginWidget.routePath,
-          builder: (context, params) => LoginWidget(),
+          name: LoginCopyWidget.routeName,
+          path: LoginCopyWidget.routePath,
+          builder: (context, params) => LoginCopyWidget(),
         ),
         FFRoute(
-          name: CreateAccountTest2Widget.routeName,
-          path: CreateAccountTest2Widget.routePath,
-          builder: (context, params) => CreateAccountTest2Widget(),
+          name: ForgotPasswordWidget.routeName,
+          path: ForgotPasswordWidget.routePath,
+          builder: (context, params) => ForgotPasswordWidget(),
+        ),
+        FFRoute(
+          name: DashboardPlaceHolderWidget.routeName,
+          path: DashboardPlaceHolderWidget.routePath,
+          builder: (context, params) => DashboardPlaceHolderWidget(),
+        ),
+        FFRoute(
+          name: UserSurvey1Widget.routeName,
+          path: UserSurvey1Widget.routePath,
+          builder: (context, params) => UserSurvey1Widget(),
+        ),
+        FFRoute(
+          name: UserSurvey2Widget.routeName,
+          path: UserSurvey2Widget.routePath,
+          builder: (context, params) => UserSurvey2Widget(),
         ),
         FFRoute(
           name: DashboardWidget.routeName,
@@ -111,14 +127,64 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => DashboardWidget(),
         ),
         FFRoute(
-          name: HomeWidget.routeName,
-          path: HomeWidget.routePath,
-          builder: (context, params) => HomeWidget(),
+          name: FullMealViewWidget.routeName,
+          path: FullMealViewWidget.routePath,
+          builder: (context, params) => FullMealViewWidget(),
         ),
         FFRoute(
-          name: LoginCopyWidget.routeName,
-          path: LoginCopyWidget.routePath,
-          builder: (context, params) => LoginCopyWidget(),
+          name: ProfilePageWidget.routeName,
+          path: ProfilePageWidget.routePath,
+          builder: (context, params) => ProfilePageWidget(),
+        ),
+        FFRoute(
+          name: EditProfileAndPrefsPageWidget.routeName,
+          path: EditProfileAndPrefsPageWidget.routePath,
+          builder: (context, params) => EditProfileAndPrefsPageWidget(),
+        ),
+        FFRoute(
+          name: NotifsPageWidget.routeName,
+          path: NotifsPageWidget.routePath,
+          builder: (context, params) => NotifsPageWidget(),
+        ),
+        FFRoute(
+          name: SupportPageWidget.routeName,
+          path: SupportPageWidget.routePath,
+          builder: (context, params) => SupportPageWidget(),
+        ),
+        FFRoute(
+          name: TosPageWidget.routeName,
+          path: TosPageWidget.routePath,
+          builder: (context, params) => TosPageWidget(),
+        ),
+        FFRoute(
+          name: FavMealViewWidget.routeName,
+          path: FavMealViewWidget.routePath,
+          builder: (context, params) => FavMealViewWidget(),
+        ),
+        FFRoute(
+          name: AskAiPageWidget.routeName,
+          path: AskAiPageWidget.routePath,
+          builder: (context, params) => AskAiPageWidget(),
+        ),
+        FFRoute(
+          name: EmailPageWidget.routeName,
+          path: EmailPageWidget.routePath,
+          builder: (context, params) => EmailPageWidget(),
+        ),
+        FFRoute(
+          name: SearchFaqPageWidget.routeName,
+          path: SearchFaqPageWidget.routePath,
+          builder: (context, params) => SearchFaqPageWidget(),
+        ),
+        FFRoute(
+          name: SurveyFoodOptionWidget.routeName,
+          path: SurveyFoodOptionWidget.routePath,
+          builder: (context, params) => SurveyFoodOptionWidget(),
+        ),
+        FFRoute(
+          name: NoRecentMealPlansWidget.routeName,
+          path: NoRecentMealPlansWidget.routePath,
+          builder: (context, params) => NoRecentMealPlansWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -303,15 +369,11 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
-                      ),
-                    ),
+              ? Container(
+                  color: Colors.transparent,
+                  child: Image.asset(
+                    'assets/images/smartMealLogo1-removebg-preview.png',
+                    fit: BoxFit.fitWidth,
                   ),
                 )
               : page;
