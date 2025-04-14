@@ -78,6 +78,29 @@ void main() async {
     await tester.tap(find.byKey(const ValueKey('Get_Started_Button_ji47')));
     expect(find.byKey(const ValueKey('Container_3qqn')), findsWidgets);
   });
+
+  testWidgets('US1 Account already exists', (WidgetTester tester) async {
+    _overrideOnError();
+
+    await tester.pumpWidget(ChangeNotifierProvider(
+      create: (context) => FFAppState(),
+      child: const MyApp(),
+    ));
+    await GoogleFonts.pendingFonts();
+
+    await tester.tap(find.byKey(const ValueKey('GlowingButton_6xa6')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 4000));
+    await tester.enterText(
+        find.byKey(const ValueKey('emailAddress_Create_2cvo')),
+        'antmypelli@gmail.com');
+    await tester.enterText(
+        find.byKey(const ValueKey('password_Create_lung')), 'pswd123');
+    await tester.enterText(
+        find.byKey(const ValueKey('password_CreateConfirm_g8z7')), 'pswd123');
+    await tester.tap(find.byKey(const ValueKey('Get_Started_Button_ji47')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 4000));
+    expect(find.text('Account already exists'), findsOneWidget);
+  });
 }
 
 // There are certain types of errors that can happen during tests but

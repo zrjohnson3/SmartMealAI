@@ -359,6 +359,7 @@ class _CreateAccountTest1WidgetState extends State<CreateAccountTest1Widget>
                           child: Container(
                             width: double.infinity,
                             child: TextFormField(
+                              key: ValueKey('password_CreateConfirm_g8z7'),
                               controller:
                                   _model.passwordCreateConfirmTextController,
                               focusNode: _model.passwordCreateConfirmFocusNode,
