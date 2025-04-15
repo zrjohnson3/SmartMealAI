@@ -31,6 +31,68 @@ void main() async {
     await appState.initializePersistedState();
   });
 
+  group('Zach\'s Test Cases', () {
+    testWidgets('Create New Acccont Success', (WidgetTester tester) async {
+      _overrideOnError();
+
+      await tester.pumpWidget(ChangeNotifierProvider(
+        create: (context) => FFAppState(),
+        child: const MyApp(),
+      ));
+      await GoogleFonts.pendingFonts();
+
+      await tester.pumpAndSettle(const Duration(milliseconds: 10000));
+      await tester.tap(find.descendant(
+        of: find.byKey(const ValueKey('GlowingButton_6xa6')),
+        matching: find.byKey(const ValueKey('Button_1eym')),
+      ));
+      await tester.pumpAndSettle(const Duration(milliseconds: 10000));
+      await tester.tap(find.byKey(const ValueKey('emailAddress_Create_2cvo')));
+      await tester.pumpAndSettle(const Duration(milliseconds: 10000));
+      await tester.enterText(
+          find.byKey(const ValueKey('emailAddress_Create_2cvo')),
+          'zj_test123@gmail.com');
+      await tester.pumpAndSettle(const Duration(milliseconds: 10000));
+      await tester.tap(find.byKey(const ValueKey('password_Create_lung')));
+      await tester.pumpAndSettle(const Duration(milliseconds: 10000));
+      await tester.enterText(
+          find.byKey(const ValueKey('password_Create_lung')), 'password');
+      await tester.pumpAndSettle(const Duration(milliseconds: 10000));
+      await tester
+          .tap(find.byKey(const ValueKey('password_CreateConfirm_g8z7')));
+      await tester.pumpAndSettle(const Duration(milliseconds: 10000));
+      await tester.enterText(
+          find.byKey(const ValueKey('password_CreateConfirm_g8z7')),
+          'password');
+      await tester.pumpAndSettle(const Duration(milliseconds: 10000));
+      await tester.tap(find.byKey(const ValueKey('Get_Started_Button_ji47')));
+      await tester.pumpAndSettle(const Duration(milliseconds: 10000));
+      expect(find.byKey(const ValueKey('Button_myf8')), findsOneWidget);
+    });
+  });
+
+  group('Qiang', () {
+    testWidgets('US2 Login', (WidgetTester tester) async {
+      _overrideOnError();
+
+      await tester.pumpWidget(ChangeNotifierProvider(
+        create: (context) => FFAppState(),
+        child: MyApp(
+          entryPage: LoginCopyWidget(),
+        ),
+      ));
+      await GoogleFonts.pendingFonts();
+
+      await tester.enterText(
+          find.byKey(const ValueKey('emailAddress_mabs')), 'Test1@email.com');
+      await tester.pumpAndSettle(const Duration(milliseconds: 10000));
+      await tester.enterText(
+          find.byKey(const ValueKey('password_4lwi')), '123456');
+      await tester.pumpAndSettle(const Duration(milliseconds: 10000));
+      await tester.tap(find.byKey(const ValueKey('Button_8ges')));
+    });
+  });
+
   testWidgets('US1 Account already exists', (WidgetTester tester) async {
     _overrideOnError();
 
@@ -54,6 +116,26 @@ void main() async {
     expect(
         find.text('Error: The email is already in use by a different account '),
         findsOneWidget);
+  });
+
+  testWidgets('US2 Login', (WidgetTester tester) async {
+    _overrideOnError();
+
+    await tester.pumpWidget(ChangeNotifierProvider(
+      create: (context) => FFAppState(),
+      child: MyApp(
+        entryPage: LoginCopyWidget(),
+      ),
+    ));
+    await GoogleFonts.pendingFonts();
+
+    await tester.enterText(
+        find.byKey(const ValueKey('emailAddress_mabs')), 'Test1@email.com');
+    await tester.pumpAndSettle(const Duration(milliseconds: 10000));
+    await tester.enterText(
+        find.byKey(const ValueKey('password_4lwi')), '123456');
+    await tester.pumpAndSettle(const Duration(milliseconds: 10000));
+    await tester.tap(find.byKey(const ValueKey('Button_8ges')));
   });
 }
 

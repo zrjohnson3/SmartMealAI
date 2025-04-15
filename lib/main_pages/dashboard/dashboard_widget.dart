@@ -107,6 +107,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 FFButtonWidget(
+                                  key: ValueKey('Button_myf8'),
                                   onPressed: () async {
                                     logFirebaseEvent(
                                         'DASHBOARD_PAGE_VIEW_FULL_PLAN_BTN_ON_TAP');
