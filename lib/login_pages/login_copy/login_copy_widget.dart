@@ -274,7 +274,6 @@ class _LoginCopyWidgetState extends State<LoginCopyWidget>
                       child: Container(
                         width: double.infinity,
                         child: TextFormField(
-                          key: ValueKey('emailAddress_mabs'),
                           controller: _model.emailAddressTextController,
                           focusNode: _model.emailAddressFocusNode,
                           onChanged: (_) => EasyDebounce.debounce(
@@ -358,7 +357,6 @@ class _LoginCopyWidgetState extends State<LoginCopyWidget>
                       child: Container(
                         width: double.infinity,
                         child: TextFormField(
-                          key: ValueKey('password_4lwi'),
                           controller: _model.passwordTextController,
                           focusNode: _model.passwordFocusNode,
                           autofocus: false,
@@ -433,7 +431,6 @@ class _LoginCopyWidgetState extends State<LoginCopyWidget>
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: Builder(
                         builder: (context) => FFButtonWidget(
-                          key: ValueKey('Button_8ges'),
                           onPressed: () async {
                             logFirebaseEvent(
                                 'LOGIN_COPY_PAGE_SIGN_IN_BTN_ON_TAP');
