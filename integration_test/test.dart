@@ -85,11 +85,13 @@ void main() async {
 
       await tester.enterText(
           find.byKey(const ValueKey('emailAddress_mabs')), 'Test1@email.com');
-      await tester.pumpAndSettle(const Duration(milliseconds: 10000));
+      await tester.pumpAndSettle(const Duration(milliseconds: 3000));
       await tester.enterText(
           find.byKey(const ValueKey('password_4lwi')), '123456');
-      await tester.pumpAndSettle(const Duration(milliseconds: 10000));
+      await tester.pumpAndSettle(const Duration(milliseconds: 3000));
       await tester.tap(find.byKey(const ValueKey('Button_8ges')));
+      await tester.pumpAndSettle(const Duration(milliseconds: 3000));
+      expect(find.text('Today\'s Meal Plan'), findsWidgets);
     });
   });
 

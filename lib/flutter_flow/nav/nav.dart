@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
@@ -122,11 +124,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => UserSurvey2Widget(),
         ),
         FFRoute(
-          name: DashboardWidget.routeName,
-          path: DashboardWidget.routePath,
-          builder: (context, params) => DashboardWidget(),
-        ),
-        FFRoute(
           name: FullMealViewWidget.routeName,
           path: FullMealViewWidget.routePath,
           builder: (context, params) => FullMealViewWidget(),
@@ -185,6 +182,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           name: NoRecentMealPlansWidget.routeName,
           path: NoRecentMealPlansWidget.routePath,
           builder: (context, params) => NoRecentMealPlansWidget(),
+        ),
+        FFRoute(
+          name: DashboardWidget.routeName,
+          path: DashboardWidget.routePath,
+          builder: (context, params) => DashboardWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -304,6 +306,7 @@ class FFParameters {
     ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
+    StructBuilder<T>? structBuilder,
   }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -322,6 +325,7 @@ class FFParameters {
       type,
       isList,
       collectionNamePath: collectionNamePath,
+      structBuilder: structBuilder,
     );
   }
 }

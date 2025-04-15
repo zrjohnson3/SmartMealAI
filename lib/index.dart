@@ -11,7 +11,6 @@ export '/login_pages/user_survey1/user_survey1_widget.dart'
     show UserSurvey1Widget;
 export '/login_pages/user_survey2/user_survey2_widget.dart'
     show UserSurvey2Widget;
-export '/main_pages/dashboard/dashboard_widget.dart' show DashboardWidget;
 export '/main_pages/full_meal_view/full_meal_view_widget.dart'
     show FullMealViewWidget;
 export '/profile_pages/profile_page/profile_page_widget.dart'
@@ -32,3 +31,4 @@ export '/main_pages/survey_food_option/survey_food_option_widget.dart'
     show SurveyFoodOptionWidget;
 export '/main_pages/no_recent_meal_plans/no_recent_meal_plans_widget.dart'
     show NoRecentMealPlansWidget;
+export '/main_pages/dashboard/dashboard_widget.dart' show DashboardWidget;

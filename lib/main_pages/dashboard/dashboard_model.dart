@@ -18,10 +18,12 @@ class DashboardModel extends FlutterFlowModel<DashboardWidget> {
   void updateTotalCaloriesAtIndex(int index, Function(double) updateFn) =>
       totalCalories[index] = updateFn(totalCalories[index]);
 
-  String aiOutput = 'aiOutput';
+  String chats = 'N/A';
 
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [AI Agent - Send Message to aiAgentAnthony] action in mealplanDisplay widget.
+  String? aiAgent;
   // Model for nutritionBar component.
   late NutritionBarModel nutritionBarModel;
   // Model for bottomNav component.

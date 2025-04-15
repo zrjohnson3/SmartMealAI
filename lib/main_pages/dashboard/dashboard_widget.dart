@@ -1,11 +1,14 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/ai_agents/ai_agent.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/main_pages/main_page_comps/bottom_nav/bottom_nav_widget.dart';
+import '/main_pages/main_page_comps/meal_from_ai/meal_from_ai_widget.dart';
 import '/main_pages/main_page_comps/mealplan_display/mealplan_display_widget.dart';
 import '/main_pages/main_page_comps/nutrition_bar/nutrition_bar_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -228,7 +231,19 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                 .isFavorite,
                                             mealType: listViewUserMealsRecord
                                                 .mealCategory,
-                                            checkAction: () async {},
+                                            checkAction: () async {
+                                              logFirebaseEvent(
+                                                  'DASHBOARD_Container_3gq0vasi_CALLBACK');
+                                              logFirebaseEvent(
+                                                  'mealplanDisplay_backend_call');
+
+                                              await listViewUserMealsRecord
+                                                  .reference
+                                                  .update(
+                                                      createUserMealsRecordData(
+                                                isFavorite: true,
+                                              ));
+                                            },
                                             deleteAction: () async {
                                               logFirebaseEvent(
                                                   'DASHBOARD_Container_3gq0vasi_CALLBACK');
@@ -242,7 +257,82 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                 isFavorite: false,
                                               ));
                                             },
-                                            recipeAction: () async {},
+                                            recipeAction: () async {
+                                              logFirebaseEvent(
+                                                  'DASHBOARD_Container_3gq0vasi_CALLBACK');
+                                              logFirebaseEvent(
+                                                  'mealplanDisplay_update_page_state');
+                                              _model.chats =
+                                                  functions.aiAgentFormatting(
+                                                      listViewUserMealsRecord
+                                                          .mealRecipe
+                                                          .toList(),
+                                                      listViewUserMealsRecord
+                                                          .mealName)!;
+                                              safeSetState(() {});
+                                              logFirebaseEvent(
+                                                  'mealplanDisplay_a_i_agent');
+                                              await callAiAgent(
+                                                context: context,
+                                                prompt: _model.chats,
+                                                threadId: 'agent_recipe',
+                                                agentCloudFunctionName:
+                                                    'aiAgentAnthony',
+                                                provider: 'GOOGLE',
+                                                agentJson:
+                                                    "{\"status\":\"LIVE\",\"identifier\":{\"name\":\"aiAgentAnthony\",\"key\":\"kvout\"},\"name\":\"aiAgentAnthony\",\"description\":\"Agent that allows users to create quick and easy recipes using the provided meal names and ingredients\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-1.5-flash\",\"parameters\":{\"temperature\":{\"inputValue\":1},\"maxTokens\":{\"inputValue\":8192},\"topP\":{\"inputValue\":0.95}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"\\\"You are SmartMeal AI, an expert in helping users with simple recipes based on a meal name and possible provided ingredients, you will give them simple instructions in order to help them make a meal, including the steps to cook as well as how to cook it, you should return results in a numbered list\\\"\"},{\"role\":\"USER\",\"text\":\"\\\"Overnight Brunch French Toast\\n1 loaf brioche or challah bread (1-1 Â¼ lb)\\n5 eggs\\n2 Â½ cups milk\\n1 tsp pure vanilla extract\\nÂ¼ tsp ground cinnamon\\n1 Â½ cups sliced bananas\\nfrozen berries\\nfrozen chopped peaches or fresh stone fruit\\nÂ½ stick salted butter, melted\\n4 tsp turbinado sugar\\\"\"},{\"role\":\"ASSISTANT\",\"text\":\"Instructions:\\n1 . Prepare the Bread\\nSlice the brioche or challah bread into 1-inch thick slices. Lightly grease a 9x13-inch baking dish with butter or cooking spray.\\n\\n2. Arrange the Layers\\nLay the bread slices in the dish, slightly overlapping if needed. Scatter your chosen fruit (e.g., sliced bananas, berries, peaches) evenly between the layers or on top.\\n\\n3. Make the Custard\\nIn a large bowl, whisk together the eggs, milk, vanilla extract, and cinnamon until fully combined.\\n\\n4. Soak the Bread\\nPour the custard evenly over the bread and fruit. Press the bread gently with a spatula to ensure it absorbs the mixture. Cover with plastic wrap and refrigerate overnight (or at least 6 hours).\\n\\n5. Bake the Next Morning\\nPreheat your oven to 350°F (175°C). Remove the dish from the fridge and let it come to room temperature while the oven heats.\\n\\n6. Add Butter and Sugar\\nDrizzle the melted butter evenly over the top. Sprinkle with turbinado sugar for a golden, crunchy topping.\\n\\n7. Bake Until Golden\\nBake for 45–50 minutes, or until the custard is set and the top is golden brown.\\n\\n8. Serve and Enjoy!\\nLet cool for 5–10 minutes. Serve warm, optionally topped with syrup, extra fruit, or powdered sugar.\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}",
+                                                responseType: 'PLAINTEXT',
+                                              ).then((generatedText) {
+                                                safeSetState(() => _model
+                                                    .aiAgent = generatedText);
+                                              });
+
+                                              logFirebaseEvent(
+                                                  'mealplanDisplay_update_page_state');
+                                              _model.chats = _model.aiAgent!;
+                                              safeSetState(() {});
+                                              logFirebaseEvent(
+                                                  'mealplanDisplay_bottom_sheet');
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return GestureDetector(
+                                                    onTap: () {
+                                                      FocusScope.of(context)
+                                                          .unfocus();
+                                                      FocusManager
+                                                          .instance.primaryFocus
+                                                          ?.unfocus();
+                                                    },
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child: MealFromAiWidget(
+                                                        mealName:
+                                                            listViewUserMealsRecord
+                                                                .mealName,
+                                                        mealRecipe:
+                                                            _model.aiAgent!,
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+
+                                              logFirebaseEvent(
+                                                  'mealplanDisplay_a_i_agent');
+                                              clearAiChat(
+                                                  'agent_recipe', 'GOOGLE');
+
+                                              safeSetState(() {});
+                                            },
                                           );
                                         },
                                       );
