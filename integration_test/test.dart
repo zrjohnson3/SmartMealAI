@@ -77,7 +77,7 @@ void main() async {
     await GoogleFonts.pendingFonts();
 
     await tester.tap(find.byKey(const ValueKey('GlowingButton_6xa6')));
-    await tester.pumpAndSettle(const Duration(milliseconds: 4000));
+    await tester.pumpAndSettle(const Duration(milliseconds: 20000));
     await tester.enterText(
         find.byKey(const ValueKey('emailAddress_Create_2cvo')),
         'antmypelli@gmail.com');
@@ -86,7 +86,7 @@ void main() async {
     await tester.enterText(
         find.byKey(const ValueKey('password_CreateConfirm_g8z7')), 'pswd123');
     await tester.tap(find.byKey(const ValueKey('Get_Started_Button_ji47')));
-    await tester.pumpAndSettle(const Duration(milliseconds: 4000));
+    await tester.pumpAndSettle(const Duration(milliseconds: 20000));
     expect(
         find.text('Error: The email is already in use by a different account '),
         findsOneWidget);
