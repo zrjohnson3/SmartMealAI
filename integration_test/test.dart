@@ -67,7 +67,7 @@ void main() async {
       await tester.pumpAndSettle(const Duration(milliseconds: 10000));
       await tester.tap(find.byKey(const ValueKey('Get_Started_Button_ji47')));
       await tester.pumpAndSettle(const Duration(milliseconds: 10000));
-      expect(find.byKey(const ValueKey('Button_myf8')), findsOneWidget);
+      expect(find.byKey(const ValueKey('Dashboard_ifjm')), findsOneWidget);
     });
   });
 
