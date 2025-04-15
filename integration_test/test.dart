@@ -31,33 +31,6 @@ void main() async {
     await appState.initializePersistedState();
   });
 
-  testWidgets('US1', (WidgetTester tester) async {
-    _overrideOnError();
-
-    await tester.pumpWidget(ChangeNotifierProvider(
-      create: (context) => FFAppState(),
-      child: const MyApp(),
-    ));
-    await GoogleFonts.pendingFonts();
-  });
-
-  testWidgets('US2', (WidgetTester tester) async {
-    _overrideOnError();
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: 'Test1@email.com', password: '123456');
-    await tester.pumpWidget(ChangeNotifierProvider(
-      create: (context) => FFAppState(),
-      child: MyApp(
-        entryPage: LoginCopyWidget(),
-      ),
-    ));
-    await GoogleFonts.pendingFonts();
-
-    await tester.tap(find.byKey(const ValueKey('emailAddress_mabs')));
-    await tester.tap(find.byKey(const ValueKey('password_4lwi')));
-    await tester.tap(find.byKey(const ValueKey('Button_8ges')));
-  });
-
   testWidgets('Create account with valid input', (WidgetTester tester) async {
     _overrideOnError();
 
@@ -102,6 +75,33 @@ void main() async {
     expect(
         find.text('Error: The email is already in use by a different account '),
         findsOneWidget);
+  });
+
+  testWidgets('US1', (WidgetTester tester) async {
+    _overrideOnError();
+
+    await tester.pumpWidget(ChangeNotifierProvider(
+      create: (context) => FFAppState(),
+      child: const MyApp(),
+    ));
+    await GoogleFonts.pendingFonts();
+  });
+
+  testWidgets('US2', (WidgetTester tester) async {
+    _overrideOnError();
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: 'Test1@email.com', password: '123456');
+    await tester.pumpWidget(ChangeNotifierProvider(
+      create: (context) => FFAppState(),
+      child: MyApp(
+        entryPage: LoginCopyWidget(),
+      ),
+    ));
+    await GoogleFonts.pendingFonts();
+
+    await tester.tap(find.byKey(const ValueKey('emailAddress_mabs')));
+    await tester.tap(find.byKey(const ValueKey('password_4lwi')));
+    await tester.tap(find.byKey(const ValueKey('Button_8ges')));
   });
 }
 
