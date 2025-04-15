@@ -76,7 +76,6 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                 Padding(
                   padding: EdgeInsets.all(18.0),
                   child: Container(
-                    key: ValueKey('Container_3qqn'),
                     width: double.infinity,
                     constraints: BoxConstraints(
                       maxHeight: 330.0,

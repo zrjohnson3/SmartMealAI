@@ -88,7 +88,6 @@ class _GlowingButtonWidgetState extends State<GlowingButtonWidget> {
             borderRadius: BorderRadius.circular(1000.0),
           ),
           child: FFButtonWidget(
-            key: ValueKey('Button_1eym'),
             onPressed: () async {
               logFirebaseEvent('GLOWING_BUTTON_GET_STARTED_BTN_ON_TAP');
               logFirebaseEvent('Button_navigate_to');
