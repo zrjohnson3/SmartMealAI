@@ -51,7 +51,7 @@ void main() async {
       await tester.pumpAndSettle(const Duration(milliseconds: 10000));
       await tester.enterText(
           find.byKey(const ValueKey('emailAddress_Create_2cvo')),
-          'z@email.com');
+          'zj_test@email.com');
       await tester.tap(find.byKey(const ValueKey('password_Create_lung')));
       await tester.pumpAndSettle(const Duration(milliseconds: 10000));
       await tester.enterText(
