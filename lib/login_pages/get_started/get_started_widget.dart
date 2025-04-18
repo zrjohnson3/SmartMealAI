@@ -223,6 +223,7 @@ class _GetStartedWidgetState extends State<GetStartedWidget> {
                               context.pushNamed(LoginCopyWidget.routeName);
                             },
                             child: Text(
+                              key: ValueKey('Text_d2nc'),
                               'Already have an account? Sign in',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium

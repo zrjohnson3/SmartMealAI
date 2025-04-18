@@ -149,7 +149,7 @@ void main() async {
     ));
     await GoogleFonts.pendingFonts();
 
-    await tester.tap(find.byKey(const ValueKey('GlowingButton_6xa6')));
+    await tester.tap(find.byKey(const ValueKey('Text_d2nc')));
     await tester.pumpAndSettle(const Duration(milliseconds: 20000));
     await tester.enterText(
         find.byKey(const ValueKey('emailAddress_mabs')), 'samron03@uri.edu');
