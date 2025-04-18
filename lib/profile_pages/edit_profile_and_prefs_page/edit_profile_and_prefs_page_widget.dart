@@ -14,6 +14,7 @@ import '/profile_pages/profile_comps/edit_diet_prefs/edit_diet_prefs_widget.dart
 import '/profile_pages/profile_comps/edit_week_meal_prep_goals_prefs/edit_week_meal_prep_goals_prefs_widget.dart';
 import 'dart:async';
 import '/index.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'edit_profile_and_prefs_page_model.dart';
@@ -903,6 +904,11 @@ class _EditProfileAndPrefsPageWidgetState
                                 onPressed: () async {
                                   logFirebaseEvent(
                                       'EDIT_PROFILE_AND_PREFS_SAVE_CHANGES_BTN_');
+                                  logFirebaseEvent('Button_firestore_query');
+                                  _model.saveChangeOut =
+                                      await queryPreferencesRecordOnce(
+                                    singleRecord: true,
+                                  ).then((s) => s.firstOrNull);
                                   logFirebaseEvent('Button_backend_call');
                                   unawaited(
                                     () async {
@@ -934,6 +940,8 @@ class _EditProfileAndPrefsPageWidgetState
                                       ));
                                     }(),
                                   );
+
+                                  safeSetState(() {});
                                 },
                                 text: 'Save Changes',
                                 options: FFButtonOptions(

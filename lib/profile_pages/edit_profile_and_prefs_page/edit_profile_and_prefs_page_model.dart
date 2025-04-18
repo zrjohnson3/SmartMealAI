@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'edit_profile_and_prefs_page_widget.dart'
@@ -51,6 +52,8 @@ class EditProfileAndPrefsPageModel
   TextEditingController? healthGoalsTextFieldTextController;
   String? Function(BuildContext, String?)?
       healthGoalsTextFieldTextControllerValidator;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  PreferencesRecord? saveChangeOut;
 
   @override
   void initState(BuildContext context) {}

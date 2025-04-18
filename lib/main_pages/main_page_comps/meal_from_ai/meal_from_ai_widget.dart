@@ -47,12 +47,14 @@ class _MealFromAiWidgetState extends State<MealFromAiWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: MediaQuery.sizeOf(context).height * 0.9,
       constraints: BoxConstraints(
         maxWidth: 300.0,
       ),
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
-        borderRadius: BorderRadius.circular(0.0),
+        borderRadius: BorderRadius.circular(40.0),
+        shape: BoxShape.rectangle,
       ),
       child: Padding(
         padding: EdgeInsets.all(8.0),
@@ -114,32 +116,37 @@ class _MealFromAiWidgetState extends State<MealFromAiWidget> {
                 ],
               ),
               Divider(
-                thickness: 1.0,
-                color: FlutterFlowTheme.of(context).primaryText,
+                thickness: 8.0,
+                color: FlutterFlowTheme.of(context).primary,
               ),
               Align(
                 alignment: AlignmentDirectional(-1.0, 0.0),
                 child: Container(
                   width: 400.0,
-                  height: 329.87,
+                  height: 446.52,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14.0),
                     shape: BoxShape.rectangle,
                   ),
                   child: Align(
-                    alignment: AlignmentDirectional(-1.0, 0.0),
+                    alignment: AlignmentDirectional(-1.0, -1.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            widget.mealRecipe,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  letterSpacing: 0.0,
-                                ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 15.0, 0.0, 0.0),
+                            child: Text(
+                              widget.mealRecipe,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
                           ),
                         ],
                       ),

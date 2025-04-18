@@ -2222,7 +2222,7 @@ class _SurveyFoodOptionWidgetState extends State<SurveyFoodOptionWidget> {
 
                             safeSetState(() {});
                           },
-                          text: 'Generate a 7 Day Meal Plan',
+                          text: 'Generate Meal Plan',
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 56.6,
