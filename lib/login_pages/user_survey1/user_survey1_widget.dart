@@ -596,16 +596,36 @@ class _UserSurvey1WidgetState extends State<UserSurvey1Widget> {
                                 ),
                               ),
                               Container(),
+                              Text(
+                                'Weight',
+                                style: FlutterFlowTheme.of(context)
+                                    .titleMedium
+                                    .override(
+                                      font: GoogleFonts.interTight(
+                                        fontWeight: FontWeight.w600,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleMedium
+                                            .fontStyle,
+                                      ),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .fontStyle,
+                                    ),
+                              ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 12.0),
                                 child: Text(
-                                  'Weight',
+                                  'Weight is measured in lbs',
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
                                         font: GoogleFonts.interTight(
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.normal,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
                                                   .titleMedium
@@ -613,8 +633,9 @@ class _UserSurvey1WidgetState extends State<UserSurvey1Widget> {
                                         ),
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
+                                        fontWeight: FontWeight.normal,
                                         fontStyle: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .fontStyle,
@@ -658,7 +679,7 @@ class _UserSurvey1WidgetState extends State<UserSurvey1Widget> {
                                                     .labelMedium
                                                     .fontStyle,
                                           ),
-                                      hintText: 'e.g., 140lbs',
+                                      hintText: 'e.g., 140',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(

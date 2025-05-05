@@ -94,9 +94,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => CreateAccountTest1Widget(),
         ),
         FFRoute(
+          name: LoginCopyWidget.routeName,
+          path: LoginCopyWidget.routePath,
+          builder: (context, params) => LoginCopyWidget(),
+        ),
+        FFRoute(
           name: ForgotPasswordWidget.routeName,
           path: ForgotPasswordWidget.routePath,
           builder: (context, params) => ForgotPasswordWidget(),
+        ),
+        FFRoute(
+          name: SurveyFoodOptionWidget.routeName,
+          path: SurveyFoodOptionWidget.routePath,
+          builder: (context, params) => SurveyFoodOptionWidget(),
         ),
         FFRoute(
           name: NoRecentMealPlansWidget.routeName,
@@ -109,36 +119,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => FavMealViewWidget(),
         ),
         FFRoute(
-          name: TosPageWidget.routeName,
-          path: TosPageWidget.routePath,
-          builder: (context, params) => TosPageWidget(),
-        ),
-        FFRoute(
-          name: PrivacyPolPageWidget.routeName,
-          path: PrivacyPolPageWidget.routePath,
-          builder: (context, params) => PrivacyPolPageWidget(),
-        ),
-        FFRoute(
-          name: GetStartedWidget.routeName,
-          path: GetStartedWidget.routePath,
-          builder: (context, params) => GetStartedWidget(),
-        ),
-        FFRoute(
-          name: LoginCopyWidget.routeName,
-          path: LoginCopyWidget.routePath,
-          builder: (context, params) => LoginCopyWidget(),
-        ),
-        FFRoute(
-          name: UserSurvey1Widget.routeName,
-          path: UserSurvey1Widget.routePath,
-          builder: (context, params) => UserSurvey1Widget(),
-        ),
-        FFRoute(
-          name: SurveyFoodOptionWidget.routeName,
-          path: SurveyFoodOptionWidget.routePath,
-          builder: (context, params) => SurveyFoodOptionWidget(),
-        ),
-        FFRoute(
           name: DashboardWidget.routeName,
           path: DashboardWidget.routePath,
           builder: (context, params) => DashboardWidget(),
@@ -149,9 +129,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => ProfilePageWidget(),
         ),
         FFRoute(
-          name: UserSurvey2Widget.routeName,
-          path: UserSurvey2Widget.routePath,
-          builder: (context, params) => UserSurvey2Widget(),
+          name: TosPageWidget.routeName,
+          path: TosPageWidget.routePath,
+          builder: (context, params) => TosPageWidget(),
+        ),
+        FFRoute(
+          name: FullMealViewWidget.routeName,
+          path: FullMealViewWidget.routePath,
+          builder: (context, params) => FullMealViewWidget(),
+        ),
+        FFRoute(
+          name: PrivacyPolPageWidget.routeName,
+          path: PrivacyPolPageWidget.routePath,
+          builder: (context, params) => PrivacyPolPageWidget(),
         ),
         FFRoute(
           name: EditProfileAndPrefsPageWidget.routeName,
@@ -159,9 +149,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => EditProfileAndPrefsPageWidget(),
         ),
         FFRoute(
-          name: FullMealViewWidget.routeName,
-          path: FullMealViewWidget.routePath,
-          builder: (context, params) => FullMealViewWidget(),
+          name: GetStartedWidget.routeName,
+          path: GetStartedWidget.routePath,
+          builder: (context, params) => GetStartedWidget(),
+        ),
+        FFRoute(
+          name: UserSurvey1Widget.routeName,
+          path: UserSurvey1Widget.routePath,
+          builder: (context, params) => UserSurvey1Widget(),
+        ),
+        FFRoute(
+          name: UserSurvey2Widget.routeName,
+          path: UserSurvey2Widget.routePath,
+          builder: (context, params) => UserSurvey2Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

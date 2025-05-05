@@ -14,6 +14,64 @@ import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
+String? nutrientConvert(
+  dynamic nutrientList,
+  int? numServings,
+) {
+  if (nutrientList == null || numServings == null) {
+    return "null";
+  }
+
+  String nutrientStr = "";
+
+  String excludedUnit = "Âµg";
+
+  // Set of labels we want to exclude
+  final excludedLabels = {
+    "Energy",
+    "Carbohydrates (net)",
+    "Folate equivalent (total)",
+    "Folate (food)",
+    "Folic acid"
+  };
+
+  final includedLabels = {
+    "Saturated",
+    "Trans",
+    "Monounsaturated",
+    "Polyunsaturated",
+    "Fiber",
+    "Sugars"
+  };
+
+  final nutrients = nutrientList as Map<String, dynamic>;
+
+  nutrients.forEach((key, value) {
+    final quantity = value['quantity'];
+    final label = value['label'];
+    final unit = value['unit'];
+
+    // Skip excluded nutrients and skip any zero quantity
+    if (quantity is num &&
+        ((quantity > 0 && unit == "g") || (quantity > 25 && unit == "mg")) &&
+        label is String &&
+        unit is String) {
+      if (includedLabels.contains(label)) {
+        nutrientStr += "\t\t   ";
+      } else if (!excludedLabels.contains(label) && unit != excludedUnit) {
+        nutrientStr += "• ";
+      }
+      if (!excludedLabels.contains(label) && unit != excludedUnit) {
+        double tempHolder = quantity / numServings;
+        nutrientStr += "$label: ${(tempHolder).toStringAsFixed(1)}$unit\n";
+      }
+    }
+  });
+
+  return nutrientStr;
+  //return nutrientStr.isNotEmpty ? nutrientStr : null;
+}
+
 String? recipeConvert(List<String>? recipeList) {
   // Create a function that takes in a list of strings and formats each item into its own bullet with a new line in between each one, making the return type of string
   if (recipeList == null || recipeList.isEmpty) {
@@ -340,64 +398,6 @@ String? aiFormatSummary(
   // Check if mealNames is a List and handle it properly
 
   return '$protein\n$fat\n$carbs\n$activity\n$health';
-}
-
-String? nutrientConvert(
-  dynamic nutrientList,
-  int? numServings,
-) {
-  if (nutrientList == null || numServings == null) {
-    return "null";
-  }
-
-  String nutrientStr = "";
-
-  String excludedUnit = "Âµg";
-
-  // Set of labels we want to exclude
-  final excludedLabels = {
-    "Energy",
-    "Carbohydrates (net)",
-    "Folate equivalent (total)",
-    "Folate (food)",
-    "Folic acid"
-  };
-
-  final includedLabels = {
-    "Saturated",
-    "Trans",
-    "Monounsaturated",
-    "Polyunsaturated",
-    "Fiber",
-    "Sugars"
-  };
-
-  final nutrients = nutrientList as Map<String, dynamic>;
-
-  nutrients.forEach((key, value) {
-    final quantity = value['quantity'];
-    final label = value['label'];
-    final unit = value['unit'];
-
-    // Skip excluded nutrients and skip any zero quantity
-    if (quantity is num &&
-        ((quantity > 0 && unit == "g") || (quantity > 25 && unit == "mg")) &&
-        label is String &&
-        unit is String) {
-      if (includedLabels.contains(label)) {
-        nutrientStr += "\t\t   ";
-      } else if (!excludedLabels.contains(label) && unit != excludedUnit) {
-        nutrientStr += "• ";
-      }
-      if (!excludedLabels.contains(label) && unit != excludedUnit) {
-        double tempHolder = quantity / numServings;
-        nutrientStr += "$label: ${(tempHolder).toStringAsFixed(1)}$unit\n";
-      }
-    }
-  });
-
-  return nutrientStr;
-  //return nutrientStr.isNotEmpty ? nutrientStr : null;
 }
 
 int? subtractForIndex(int? dayDisplay) {

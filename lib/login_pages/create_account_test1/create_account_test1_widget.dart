@@ -699,9 +699,11 @@ class _CreateAccountTest1WidgetState extends State<CreateAccountTest1Widget>
                                           if (user == null) {
                                             return;
                                           }
+                                          logFirebaseEvent(
+                                              'GoogleButton_navigate_to');
 
-                                          context.goNamedAuth(
-                                              DashboardWidget.routeName,
+                                          context.pushNamedAuth(
+                                              UserSurvey1Widget.routeName,
                                               context.mounted);
                                         },
                                         text: 'Continue with Google',
