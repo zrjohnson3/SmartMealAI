@@ -1,14 +1,13 @@
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'full_meal_display_model.dart';
-export 'full_meal_display_model.dart';
+import 'fav_meal_display_copy_model.dart';
+export 'fav_meal_display_copy_model.dart';
 
-class FullMealDisplayWidget extends StatefulWidget {
-  const FullMealDisplayWidget({
+class FavMealDisplayCopyWidget extends StatefulWidget {
+  const FavMealDisplayCopyWidget({
     super.key,
     String? mealName,
     String? mealImage,
@@ -20,7 +19,6 @@ class FullMealDisplayWidget extends StatefulWidget {
     required this.checkAction,
     required this.deleteAction,
     required this.bottomSheetAction,
-    required this.refreshMeal,
     required this.mealMark,
   })  : this.mealName = mealName ?? 'N/A',
         this.mealImage = mealImage ??
@@ -39,17 +37,17 @@ class FullMealDisplayWidget extends StatefulWidget {
   final Future Function()? checkAction;
   final Future Function()? deleteAction;
   final Future Function()? bottomSheetAction;
-  final Future Function()? refreshMeal;
 
   /// Marking of whether the meal is breakfast, lunch, or dinner
   final int? mealMark;
 
   @override
-  State<FullMealDisplayWidget> createState() => _FullMealDisplayWidgetState();
+  State<FavMealDisplayCopyWidget> createState() =>
+      _FavMealDisplayCopyWidgetState();
 }
 
-class _FullMealDisplayWidgetState extends State<FullMealDisplayWidget> {
-  late FullMealDisplayModel _model;
+class _FavMealDisplayCopyWidgetState extends State<FavMealDisplayCopyWidget> {
+  late FavMealDisplayCopyModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -60,7 +58,7 @@ class _FullMealDisplayWidgetState extends State<FullMealDisplayWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => FullMealDisplayModel());
+    _model = createModel(context, () => FavMealDisplayCopyModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -112,7 +110,7 @@ class _FullMealDisplayWidgetState extends State<FullMealDisplayWidget> {
                     highlightColor: Colors.transparent,
                     onTap: () async {
                       logFirebaseEvent(
-                          'FULL_MEAL_DISPLAY_Image_z9lpwd2j_ON_TAP');
+                          'FAV_MEAL_DISPLAY_COPY_Image_5afxabty_ON_');
                       logFirebaseEvent('Image_execute_callback');
                       await widget.bottomSheetAction?.call();
                     },
@@ -221,13 +219,13 @@ class _FullMealDisplayWidgetState extends State<FullMealDisplayWidget> {
                                             _model.checkboxValue = newValue!);
                                         if (newValue!) {
                                           logFirebaseEvent(
-                                              'FULL_MEAL_DISPLAY_Checkbox_xh9qk5mu_ON_T');
+                                              'FAV_MEAL_DISPLAY_COPY_Checkbox_wfmowdez_');
                                           logFirebaseEvent(
                                               'Checkbox_execute_callback');
                                           await widget.checkAction?.call();
                                         } else {
                                           logFirebaseEvent(
-                                              'FULL_MEAL_DISPLAY_Checkbox_xh9qk5mu_ON_T');
+                                              'FAV_MEAL_DISPLAY_COPY_Checkbox_wfmowdez_');
                                           logFirebaseEvent(
                                               'Checkbox_execute_callback');
                                           await widget.deleteAction?.call();
@@ -297,29 +295,6 @@ class _FullMealDisplayWidgetState extends State<FullMealDisplayWidget> {
                                             .labelMedium
                                             .fontStyle,
                                       ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    15.0, 0.0, 0.0, 0.0),
-                                child: FlutterFlowIconButton(
-                                  borderRadius: 8.0,
-                                  buttonSize: 40.0,
-                                  fillColor:
-                                      FlutterFlowTheme.of(context).secondary,
-                                  icon: Icon(
-                                    Icons.refresh_rounded,
-                                    color:
-                                        FlutterFlowTheme.of(context).tertiary,
-                                    size: 24.0,
-                                  ),
-                                  onPressed: () async {
-                                    logFirebaseEvent(
-                                        'FULL_MEAL_DISPLAY_refresh_rounded_ICN_ON');
-                                    logFirebaseEvent(
-                                        'IconButton_execute_callback');
-                                    await widget.refreshMeal?.call();
-                                  },
                                 ),
                               ),
                             ],

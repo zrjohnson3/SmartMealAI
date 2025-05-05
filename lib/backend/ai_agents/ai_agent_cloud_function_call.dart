@@ -89,6 +89,7 @@ class ThreadManager {
 /// * [threadId] - A local identifier for the conversation thread.
 /// * [provider] - The AI provider (e.g. 'OPENAI', 'GOOGLE').
 /// * [imageUrl] - Optional URL of an image to include in the message.
+/// * [pdfUrl] - Optional URL of a PDF to include in the message.
 ///
 /// Returns the agent's response text, or null if an error occurred.
 Future<String?> callCloudAgent({
@@ -98,6 +99,7 @@ Future<String?> callCloudAgent({
   required String threadId,
   required String provider,
   String? imageUrl,
+  String? pdfUrl,
 }) async {
   try {
     final vendorThreadId = ThreadManager.getVendorThreadId(provider, threadId);
@@ -116,6 +118,7 @@ Future<String?> callCloudAgent({
       if (vendorThreadId != null) "threadId": vendorThreadId,
       if (assistantId != null) "assistantId": assistantId,
       if (imageUrl != null && imageUrl.isNotEmpty) "imageUrl": imageUrl,
+      if (pdfUrl != null && pdfUrl.isNotEmpty) "pdfUrl": pdfUrl,
       "messages": messages,
     });
 

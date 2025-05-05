@@ -70,6 +70,11 @@ class UsersRecord extends FirestoreRecord {
   DateTime? get lastMealCreation => _lastMealCreation;
   bool hasLastMealCreation() => _lastMealCreation != null;
 
+  // "one_or_three_days" field.
+  bool? _oneOrThreeDays;
+  bool get oneOrThreeDays => _oneOrThreeDays ?? false;
+  bool hasOneOrThreeDays() => _oneOrThreeDays != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -82,6 +87,7 @@ class UsersRecord extends FirestoreRecord {
     _netPromoterScore = getDataList(snapshotData['net_promoter_score']);
     _feedback = getDataList(snapshotData['feedback']);
     _lastMealCreation = snapshotData['last_meal_creation'] as DateTime?;
+    _oneOrThreeDays = snapshotData['one_or_three_days'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -127,6 +133,7 @@ Map<String, dynamic> createUsersRecordData({
   DateTime? birthday,
   int? loginCount,
   DateTime? lastMealCreation,
+  bool? oneOrThreeDays,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -139,6 +146,7 @@ Map<String, dynamic> createUsersRecordData({
       'birthday': birthday,
       'login_count': loginCount,
       'last_meal_creation': lastMealCreation,
+      'one_or_three_days': oneOrThreeDays,
     }.withoutNulls,
   );
 
@@ -161,7 +169,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.loginCount == e2?.loginCount &&
         listEquality.equals(e1?.netPromoterScore, e2?.netPromoterScore) &&
         listEquality.equals(e1?.feedback, e2?.feedback) &&
-        e1?.lastMealCreation == e2?.lastMealCreation;
+        e1?.lastMealCreation == e2?.lastMealCreation &&
+        e1?.oneOrThreeDays == e2?.oneOrThreeDays;
   }
 
   @override
@@ -176,7 +185,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.loginCount,
         e?.netPromoterScore,
         e?.feedback,
-        e?.lastMealCreation
+        e?.lastMealCreation,
+        e?.oneOrThreeDays
       ]);
 
   @override

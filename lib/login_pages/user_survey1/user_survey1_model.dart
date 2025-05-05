@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/index.dart';
 import 'user_survey1_widget.dart' show UserSurvey1Widget;
 import 'package:flutter/material.dart';
@@ -10,10 +11,9 @@ class UserSurvey1Model extends FlutterFlowModel<UserSurvey1Widget> {
   FocusNode? ageTxtFocusNode;
   TextEditingController? ageTxtTextController;
   String? Function(BuildContext, String?)? ageTxtTextControllerValidator;
-  // State field(s) for genderTxt widget.
-  FocusNode? genderTxtFocusNode;
-  TextEditingController? genderTxtTextController;
-  String? Function(BuildContext, String?)? genderTxtTextControllerValidator;
+  // State field(s) for genderDropDn widget.
+  String? genderDropDnValue;
+  FormFieldController<String>? genderDropDnValueController;
   // State field(s) for heightTxt widget.
   FocusNode? heightTxtFocusNode;
   TextEditingController? heightTxtTextController;
@@ -22,10 +22,9 @@ class UserSurvey1Model extends FlutterFlowModel<UserSurvey1Widget> {
   FocusNode? weightTxtFocusNode;
   TextEditingController? weightTxtTextController;
   String? Function(BuildContext, String?)? weightTxtTextControllerValidator;
-  // State field(s) for healthgoal widget.
-  FocusNode? healthgoalFocusNode;
-  TextEditingController? healthgoalTextController;
-  String? Function(BuildContext, String?)? healthgoalTextControllerValidator;
+  // State field(s) for DropDown widget.
+  String? dropDownValue;
+  FormFieldController<String>? dropDownValueController;
 
   @override
   void initState(BuildContext context) {}
@@ -35,16 +34,10 @@ class UserSurvey1Model extends FlutterFlowModel<UserSurvey1Widget> {
     ageTxtFocusNode?.dispose();
     ageTxtTextController?.dispose();
 
-    genderTxtFocusNode?.dispose();
-    genderTxtTextController?.dispose();
-
     heightTxtFocusNode?.dispose();
     heightTxtTextController?.dispose();
 
     weightTxtFocusNode?.dispose();
     weightTxtTextController?.dispose();
-
-    healthgoalFocusNode?.dispose();
-    healthgoalTextController?.dispose();
   }
 }

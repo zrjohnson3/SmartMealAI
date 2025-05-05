@@ -1,7 +1,10 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:provider/provider.dart';
 import 'nutrition_bar_model.dart';
 export 'nutrition_bar_model.dart';
 
@@ -12,12 +15,14 @@ class NutritionBarWidget extends StatefulWidget {
     required this.proteinValue,
     required this.fatValue,
     required this.calorieText,
+    required this.carbValue,
   });
 
-  final double? calorieValue;
+  final int? calorieValue;
   final double? proteinValue;
   final double? fatValue;
-  final int? calorieText;
+  final double? calorieText;
+  final double? carbValue;
 
   @override
   State<NutritionBarWidget> createState() => _NutritionBarWidgetState();
@@ -49,6 +54,8 @@ class _NutritionBarWidgetState extends State<NutritionBarWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -69,13 +76,21 @@ class _NutritionBarWidgetState extends State<NutritionBarWidget> {
         padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              'Nutrition Facts',
+              'Today\'s Nutrition',
               style: FlutterFlowTheme.of(context).headlineSmall.override(
-                    fontFamily: 'Inter Tight',
+                    font: GoogleFonts.interTight(
+                      fontWeight: FontWeight.w600,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineSmall.fontStyle,
+                    ),
+                    fontSize: 14.0,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineSmall.fontStyle,
                   ),
             ),
             Column(
@@ -92,9 +107,17 @@ class _NutritionBarWidgetState extends State<NutritionBarWidget> {
                           'Calories',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                         ),
                         Text(
@@ -105,10 +128,23 @@ class _NutritionBarWidgetState extends State<NutritionBarWidget> {
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
-                                fontFamily: 'Inter',
+                                font: GoogleFonts.inter(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
                               ),
                         ),
                       ],
@@ -125,7 +161,8 @@ class _NutritionBarWidgetState extends State<NutritionBarWidget> {
                         children: [
                           Expanded(
                             child: LinearPercentIndicator(
-                              percent: widget.calorieValue!,
+                              percent: functions.dailyProgressNutrition(
+                                  widget.calorieText!, widget.calorieValue!),
                               lineHeight: 12.0,
                               animation: true,
                               animateFromLastPercent: true,
@@ -152,9 +189,17 @@ class _NutritionBarWidgetState extends State<NutritionBarWidget> {
                           'Protein',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                         ),
                         Text(
@@ -165,10 +210,23 @@ class _NutritionBarWidgetState extends State<NutritionBarWidget> {
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
-                                fontFamily: 'Inter',
+                                font: GoogleFonts.inter(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
                               ),
                         ),
                       ],
@@ -178,7 +236,11 @@ class _NutritionBarWidgetState extends State<NutritionBarWidget> {
                       children: [
                         Expanded(
                           child: LinearPercentIndicator(
-                            percent: widget.proteinValue!,
+                            percent: functions.dailyProgressNutrition(
+                                widget.proteinValue!,
+                                functions.recProteinIntake(
+                                    FFAppState().dietLabel,
+                                    widget.calorieValue!)),
                             lineHeight: 12.0,
                             animation: true,
                             animateFromLastPercent: true,
@@ -203,9 +265,17 @@ class _NutritionBarWidgetState extends State<NutritionBarWidget> {
                           'Fat',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                         ),
                         Text(
@@ -216,10 +286,23 @@ class _NutritionBarWidgetState extends State<NutritionBarWidget> {
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
-                                fontFamily: 'Inter',
+                                font: GoogleFonts.inter(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
                               ),
                         ),
                       ],
@@ -229,7 +312,10 @@ class _NutritionBarWidgetState extends State<NutritionBarWidget> {
                       children: [
                         Expanded(
                           child: LinearPercentIndicator(
-                            percent: widget.fatValue!,
+                            percent: functions.dailyProgressNutrition(
+                                widget.fatValue!,
+                                functions.recFatIntake(FFAppState().dietLabel,
+                                    widget.calorieValue!)),
                             lineHeight: 12.0,
                             animation: true,
                             animateFromLastPercent: true,
@@ -244,6 +330,84 @@ class _NutritionBarWidgetState extends State<NutritionBarWidget> {
                   ].divide(SizedBox(height: 4.0)),
                 ),
               ].divide(SizedBox(height: 12.0)),
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Carbs',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.inter(
+                              fontWeight: FontWeight.w600,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w600,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
+                    ),
+                    Text(
+                      valueOrDefault<String>(
+                        widget.carbValue?.toString(),
+                        'N/A',
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.inter(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
+                    ),
+                  ],
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 12.0,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFE0E3E7),
+                    borderRadius: BorderRadius.circular(6.0),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        child: LinearPercentIndicator(
+                          percent: functions.dailyProgressNutrition(
+                              widget.carbValue!,
+                              functions.recCarbIntake(FFAppState().dietLabel,
+                                  widget.calorieValue!)),
+                          lineHeight: 12.0,
+                          animation: true,
+                          animateFromLastPercent: true,
+                          progressColor: FlutterFlowTheme.of(context).primary,
+                          backgroundColor: FlutterFlowTheme.of(context).accent4,
+                          padding: EdgeInsets.zero,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ].divide(SizedBox(height: 4.0)),
             ),
           ].divide(SizedBox(height: 16.0)),
         ),

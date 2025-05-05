@@ -8,20 +8,27 @@ import '/flutter_flow/form_field_controller.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'edit_calorie_target_prefs_model.dart';
-export 'edit_calorie_target_prefs_model.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'edit_activity_prefs_model.dart';
+export 'edit_activity_prefs_model.dart';
 
-class EditCalorieTargetPrefsWidget extends StatefulWidget {
-  const EditCalorieTargetPrefsWidget({super.key});
+class EditActivityPrefsWidget extends StatefulWidget {
+  const EditActivityPrefsWidget({
+    super.key,
+    required this.exitAction,
+    required this.callbackAction,
+  });
+
+  final Future Function()? exitAction;
+  final Future Function()? callbackAction;
 
   @override
-  State<EditCalorieTargetPrefsWidget> createState() =>
-      _EditCalorieTargetPrefsWidgetState();
+  State<EditActivityPrefsWidget> createState() =>
+      _EditActivityPrefsWidgetState();
 }
 
-class _EditCalorieTargetPrefsWidgetState
-    extends State<EditCalorieTargetPrefsWidget> {
-  late EditCalorieTargetPrefsModel _model;
+class _EditActivityPrefsWidgetState extends State<EditActivityPrefsWidget> {
+  late EditActivityPrefsModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -32,12 +39,12 @@ class _EditCalorieTargetPrefsWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => EditCalorieTargetPrefsModel());
+    _model = createModel(context, () => EditActivityPrefsModel());
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('EDIT_CALORIE_TARGET_PREFS_editCalorieTar');
-      logFirebaseEvent('editCalorieTargetPrefs_firestore_query');
+      logFirebaseEvent('EDIT_ACTIVITY_PREFS_editActivityPrefs_ON');
+      logFirebaseEvent('editActivityPrefs_firestore_query');
       _model.testout = await queryPreferencesRecordOnce(
         singleRecord: true,
       ).then((s) => s.firstOrNull);
@@ -90,44 +97,65 @@ class _EditCalorieTargetPrefsWidgetState
                   ),
                   onPressed: () async {
                     logFirebaseEvent(
-                        'EDIT_CALORIE_TARGET_PREFS_arrow_back_ICN');
-                    logFirebaseEvent('IconButton_bottom_sheet');
-                    Navigator.pop(context);
+                        'EDIT_ACTIVITY_PREFS_arrow_back_ICN_ON_TA');
+                    logFirebaseEvent('IconButton_execute_callback');
+                    await widget.exitAction?.call();
                   },
                 ),
               ],
             ),
             Text(
-              'Calorie Target',
+              'Activity Level',
               style: FlutterFlowTheme.of(context).headlineSmall.override(
-                    fontFamily: 'Inter Tight',
+                    font: GoogleFonts.interTight(
+                      fontWeight:
+                          FlutterFlowTheme.of(context).headlineSmall.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineSmall.fontStyle,
+                    ),
                     letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineSmall.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineSmall.fontStyle,
                   ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
               child: FlutterFlowDropDown<String>(
                 controller: _model.calorieTargetDropDownValueController ??=
-                    FormFieldController<String>(
-                  _model.calorieTargetDropDownValue ??=
-                      _model.testout?.calorieTarget,
-                ),
+                    FormFieldController<String>(null),
                 options: [
-                  'Under 1500 calories',
-                  '1500-2000 calories',
-                  '2000-2500 calories',
-                  '2500+ calories',
-                  'I don\'t track calories'
+                  'Sedentary',
+                  'Light (Exercises 1-2 times a week)',
+                  'Moderate (Exercises 3-5 times a week)',
+                  'Heavy (Exercises 6-7 times a week)',
+                  'Very Heavy (Exercises 2 times a day)'
                 ],
-                onChanged: (val) =>
-                    safeSetState(() => _model.calorieTargetDropDownValue = val),
+                onChanged: (val) async {
+                  safeSetState(() => _model.calorieTargetDropDownValue = val);
+                  logFirebaseEvent('EDIT_ACTIVITY_PREFS_CalorieTargetDropDow');
+                  logFirebaseEvent('CalorieTargetDropDown_update_app_state');
+                  FFAppState().activityPref =
+                      _model.calorieTargetDropDownValue!;
+                  safeSetState(() {});
+                },
                 width: double.infinity,
                 height: 50.0,
                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Inter',
+                      font: GoogleFonts.inter(
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
                       letterSpacing: 0.0,
+                      fontWeight:
+                          FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                     ),
-                hintText: 'Select your daily calorie target',
+                hintText: 'Select your activity level...',
                 icon: Icon(
                   Icons.keyboard_arrow_down_rounded,
                   color: FlutterFlowTheme.of(context).secondaryText,
@@ -146,15 +174,9 @@ class _EditCalorieTargetPrefsWidgetState
             ),
             FFButtonWidget(
               onPressed: () async {
-                logFirebaseEvent('EDIT_CALORIE_TARGET_PREFS_calTargetConfi');
-                logFirebaseEvent('calTargetConfirm_backend_call');
-
-                await _model.testout!.reference
-                    .update(createPreferencesRecordData(
-                  calTarget: _model.calorieTargetDropDownValue,
-                ));
-                logFirebaseEvent('calTargetConfirm_bottom_sheet');
-                Navigator.pop(context);
+                logFirebaseEvent('EDIT_ACTIVITY_PREFS_calTargetConfirm_ON_');
+                logFirebaseEvent('calTargetConfirm_execute_callback');
+                await widget.callbackAction?.call();
               },
               text: 'Confirm',
               options: FFButtonOptions(
@@ -163,9 +185,18 @@ class _EditCalorieTargetPrefsWidgetState
                 iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: FlutterFlowTheme.of(context).primary,
                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                      fontFamily: 'Inter Tight',
+                      font: GoogleFonts.interTight(
+                        fontWeight:
+                            FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                      ),
                       color: Colors.white,
                       letterSpacing: 0.0,
+                      fontWeight:
+                          FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).titleSmall.fontStyle,
                     ),
                 elevation: 0.0,
                 borderRadius: BorderRadius.circular(8.0),

@@ -13,6 +13,24 @@
           "order": "DESCENDING"
         }
       ]
+    },
+    {
+      "collectionGroup": "userMeals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "mealDay",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "whenCreated",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "mealMark",
+          "order": "ASCENDING"
+        }
+      ]
     }
   ]
 }

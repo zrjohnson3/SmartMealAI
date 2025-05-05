@@ -1,5 +1,6 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/index.dart';
 import 'edit_profile_and_prefs_page_widget.dart'
     show EditProfileAndPrefsPageWidget;
@@ -7,6 +8,19 @@ import 'package:flutter/material.dart';
 
 class EditProfileAndPrefsPageModel
     extends FlutterFlowModel<EditProfileAndPrefsPageWidget> {
+  ///  Local state fields for this page.
+
+  List<String> dietPref = [];
+  void addToDietPref(String item) => dietPref.add(item);
+  void removeFromDietPref(String item) => dietPref.remove(item);
+  void removeAtIndexFromDietPref(int index) => dietPref.removeAt(index);
+  void insertAtIndexInDietPref(int index, String item) =>
+      dietPref.insert(index, item);
+  void updateDietPrefAtIndex(int index, Function(String) updateFn) =>
+      dietPref[index] = updateFn(dietPref[index]);
+
+  String? tempHealth;
+
   ///  State fields for stateful widgets in this page.
 
   bool isDataUploading = false;
@@ -23,11 +37,6 @@ class EditProfileAndPrefsPageModel
   TextEditingController? emailTextFieldTextController;
   String? Function(BuildContext, String?)?
       emailTextFieldTextControllerValidator;
-  // State field(s) for phoneTextField widget.
-  FocusNode? phoneTextFieldFocusNode;
-  TextEditingController? phoneTextFieldTextController;
-  String? Function(BuildContext, String?)?
-      phoneTextFieldTextControllerValidator;
   // State field(s) for ageTextField widget.
   FocusNode? ageTextFieldFocusNode;
   TextEditingController? ageTextFieldTextController;
@@ -47,13 +56,11 @@ class EditProfileAndPrefsPageModel
   TextEditingController? weightTextFieldTextController;
   String? Function(BuildContext, String?)?
       weightTextFieldTextControllerValidator;
-  // State field(s) for healthGoalsTextField widget.
-  FocusNode? healthGoalsTextFieldFocusNode;
-  TextEditingController? healthGoalsTextFieldTextController;
-  String? Function(BuildContext, String?)?
-      healthGoalsTextFieldTextControllerValidator;
+  // State field(s) for healthGoalsDropDown widget.
+  String? healthGoalsDropDownValue;
+  FormFieldController<String>? healthGoalsDropDownValueController;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
-  PreferencesRecord? saveChangeOut;
+  PreferencesRecord? saveChangeOutCopy;
 
   @override
   void initState(BuildContext context) {}
@@ -66,9 +73,6 @@ class EditProfileAndPrefsPageModel
     emailTextFieldFocusNode?.dispose();
     emailTextFieldTextController?.dispose();
 
-    phoneTextFieldFocusNode?.dispose();
-    phoneTextFieldTextController?.dispose();
-
     ageTextFieldFocusNode?.dispose();
     ageTextFieldTextController?.dispose();
 
@@ -80,8 +84,5 @@ class EditProfileAndPrefsPageModel
 
     weightTextFieldFocusNode?.dispose();
     weightTextFieldTextController?.dispose();
-
-    healthGoalsTextFieldFocusNode?.dispose();
-    healthGoalsTextFieldTextController?.dispose();
   }
 }

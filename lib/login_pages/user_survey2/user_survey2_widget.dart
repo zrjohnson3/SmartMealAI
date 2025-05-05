@@ -7,8 +7,10 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'user_survey2_model.dart';
 export 'user_survey2_model.dart';
@@ -79,10 +81,16 @@ class _UserSurvey2WidgetState extends State<UserSurvey2Widget> {
           title: Text(
             'SmartMeal AI',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Inter Tight',
+                  font: GoogleFonts.interTight(
+                    fontWeight: FontWeight.w600,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  ),
                   color: FlutterFlowTheme.of(context).info,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                 ),
           ),
           actions: [],
@@ -102,102 +110,93 @@ class _UserSurvey2WidgetState extends State<UserSurvey2Widget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                     child: Text(
-                      'Dietary Preferences',
+                      'Dietary Restrictions',
                       style: FlutterFlowTheme.of(context).titleMedium.override(
-                            fontFamily: 'Inter Tight',
+                            font: GoogleFonts.interTight(
+                              fontWeight: FontWeight.w600,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .fontStyle,
+                            ),
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .fontStyle,
                           ),
                     ),
-                  ),
-                  FlutterFlowCheckboxGroup(
-                    options: [
-                      'Vegetarian',
-                      'Vegan',
-                      'Pescatarian',
-                      'Keto',
-                      'Paleo',
-                      'Gluten-Free',
-                      'Carnivore',
-                      'None',
-                      'Other'
-                    ],
-                    onChanged: (val) => safeSetState(() =>
-                        _model.dietaryPreferencesCheckboxGroupValues = val),
-                    controller: _model
-                            .dietaryPreferencesCheckboxGroupValueController ??=
-                        FormFieldController<List<String>>(
-                      [],
-                    ),
-                    activeColor: FlutterFlowTheme.of(context).primary,
-                    checkColor: FlutterFlowTheme.of(context).info,
-                    checkboxBorderColor:
-                        FlutterFlowTheme.of(context).secondaryText,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w500,
-                        ),
-                    unselectedTextStyle: TextStyle(),
-                    checkboxBorderRadius: BorderRadius.circular(4.0),
-                    initialized:
-                        _model.dietaryPreferencesCheckboxGroupValues != null,
                   ),
                   Container(),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 12.0),
-                    child: Text(
-                      'Allergies & Restrictions',
-                      style: FlutterFlowTheme.of(context).titleMedium.override(
-                            fontFamily: 'Inter Tight',
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                    ),
-                  ),
-                  FlutterFlowCheckboxGroup(
+                  Container(),
+                  FlutterFlowDropDown<String>(
+                    controller: _model.dropDownValueController ??=
+                        FormFieldController<String>(null),
                     options: [
-                      'Dairy',
-                      'Eggs',
-                      'Nuts',
-                      'Shellfish',
-                      'Soy',
+                      'Gluten',
                       'Wheat',
-                      'None',
-                      'Other'
+                      'Soy',
+                      'Eggs',
+                      'Milk',
+                      'Fish',
+                      'None'
                     ],
-                    onChanged: (val) => safeSetState(() =>
-                        _model.allergiesRestrictionsCheckboxGroupValues = val),
-                    controller: _model
-                            .allergiesRestrictionsCheckboxGroupValueController ??=
-                        FormFieldController<List<String>>(
-                      [],
-                    ),
-                    activeColor: FlutterFlowTheme.of(context).primary,
-                    checkColor: FlutterFlowTheme.of(context).info,
-                    checkboxBorderColor:
-                        FlutterFlowTheme.of(context).secondaryText,
+                    onChanged: (val) =>
+                        safeSetState(() => _model.dropDownValue = val),
+                    width: double.infinity,
+                    height: 50.0,
                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
                           letterSpacing: 0.0,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         ),
-                    unselectedTextStyle: TextStyle(),
-                    checkboxBorderRadius: BorderRadius.circular(4.0),
-                    initialized:
-                        _model.allergiesRestrictionsCheckboxGroupValues != null,
+                    hintText: 'Input your dietary restrictions...',
+                    icon: Icon(
+                      Icons.keyboard_arrow_down_rounded,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      size: 24.0,
+                    ),
+                    fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+                    elevation: 2.0,
+                    borderColor: FlutterFlowTheme.of(context).secondaryText,
+                    borderWidth: 0.0,
+                    borderRadius: 8.0,
+                    margin:
+                        EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                    hidesUnderline: true,
+                    isOverButton: false,
+                    isSearchable: false,
+                    isMultiSelect: false,
                   ),
+                  Container(),
                   Container(),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 12.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 12.0),
                     child: Text(
-                      'Cooking Experience',
+                      'Activity Level',
                       style: FlutterFlowTheme.of(context).titleMedium.override(
-                            fontFamily: 'Inter Tight',
+                            font: GoogleFonts.interTight(
+                              fontWeight: FontWeight.w600,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .fontStyle,
+                            ),
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .fontStyle,
                           ),
                     ),
                   ),
@@ -206,73 +205,38 @@ class _UserSurvey2WidgetState extends State<UserSurvey2Widget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                     child: FlutterFlowDropDown<String>(
                       controller:
-                          _model.cookingExperienceDropDownValueController ??=
-                              FormFieldController<String>(null),
-                      options: ['Beginner', 'Intermediate', 'Advanced'],
-                      onChanged: (val) => safeSetState(
-                          () => _model.cookingExperienceDropDownValue = val),
-                      width: double.infinity,
-                      height: 50.0,
-                      textStyle:
-                          FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Inter',
-                                letterSpacing: 0.0,
-                              ),
-                      hintText: 'Select your cooking level',
-                      icon: Icon(
-                        Icons.keyboard_arrow_down_rounded,
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                        size: 24.0,
-                      ),
-                      fillColor:
-                          FlutterFlowTheme.of(context).secondaryBackground,
-                      elevation: 2.0,
-                      borderColor: FlutterFlowTheme.of(context).alternate,
-                      borderWidth: 1.0,
-                      borderRadius: 8.0,
-                      margin:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      hidesUnderline: true,
-                      isSearchable: false,
-                      isMultiSelect: false,
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
-                    child: Text(
-                      'Weekly Meal Prep Goals',
-                      style: FlutterFlowTheme.of(context).titleMedium.override(
-                            fontFamily: 'Inter Tight',
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                    ),
-                  ),
-                  Container(),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
-                    child: FlutterFlowDropDown<String>(
-                      controller:
-                          _model.weeklyMealPrepGoalsDropDownValueController ??=
+                          _model.activityLevelDropDownValueController ??=
                               FormFieldController<String>(null),
                       options: [
-                        '1-3 meals per week',
-                        '4-7 meals per week',
-                        '8-14 meals per week',
-                        '15+ meals per week'
+                        'Sedentary',
+                        'Light (Exercises 1-2 times a week)',
+                        'Moderate (Exercises 3-5 times a week)',
+                        'Heavy (Exercises 6-7 times a week)',
+                        'Very Heavy (Exercises 2 times a day)'
                       ],
                       onChanged: (val) => safeSetState(
-                          () => _model.weeklyMealPrepGoalsDropDownValue = val),
+                          () => _model.activityLevelDropDownValue = val),
                       width: double.infinity,
                       height: 50.0,
                       textStyle:
                           FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Inter',
+                                font: GoogleFonts.inter(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
                               ),
-                      hintText: 'How many meals do you want to prep?',
+                      hintText: '  Select your activity level',
                       icon: Icon(
                         Icons.keyboard_arrow_down_rounded,
                         color: FlutterFlowTheme.of(context).secondaryText,
@@ -281,62 +245,7 @@ class _UserSurvey2WidgetState extends State<UserSurvey2Widget> {
                       fillColor:
                           FlutterFlowTheme.of(context).secondaryBackground,
                       elevation: 2.0,
-                      borderColor: FlutterFlowTheme.of(context).alternate,
-                      borderWidth: 1.0,
-                      borderRadius: 8.0,
-                      margin:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      hidesUnderline: true,
-                      isSearchable: false,
-                      isMultiSelect: false,
-                    ),
-                  ),
-                  Container(),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
-                    child: Text(
-                      'Calorie Target',
-                      style: FlutterFlowTheme.of(context).titleMedium.override(
-                            fontFamily: 'Inter Tight',
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
-                    child: FlutterFlowDropDown<String>(
-                      controller:
-                          _model.calorieTargetDropDownValueController ??=
-                              FormFieldController<String>(null),
-                      options: [
-                        'Under 1500 calories',
-                        '1500-2000 calories',
-                        '2000-2500 calories',
-                        '2500+ calories',
-                        'I don\'t track calories'
-                      ],
-                      onChanged: (val) => safeSetState(
-                          () => _model.calorieTargetDropDownValue = val),
-                      width: double.infinity,
-                      height: 50.0,
-                      textStyle:
-                          FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Inter',
-                                letterSpacing: 0.0,
-                              ),
-                      hintText: 'Select your daily calorie target',
-                      icon: Icon(
-                        Icons.keyboard_arrow_down_rounded,
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                        size: 24.0,
-                      ),
-                      fillColor:
-                          FlutterFlowTheme.of(context).secondaryBackground,
-                      elevation: 2.0,
-                      borderColor: FlutterFlowTheme.of(context).alternate,
+                      borderColor: FlutterFlowTheme.of(context).secondaryText,
                       borderWidth: 1.0,
                       borderRadius: 8.0,
                       margin:
@@ -353,9 +262,17 @@ class _UserSurvey2WidgetState extends State<UserSurvey2Widget> {
                     child: Text(
                       'Favorite Cuisines',
                       style: FlutterFlowTheme.of(context).titleMedium.override(
-                            fontFamily: 'Inter Tight',
+                            font: GoogleFonts.interTight(
+                              fontWeight: FontWeight.w600,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .fontStyle,
+                            ),
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .fontStyle,
                           ),
                     ),
                   ),
@@ -383,9 +300,16 @@ class _UserSurvey2WidgetState extends State<UserSurvey2Widget> {
                     checkboxBorderColor:
                         FlutterFlowTheme.of(context).secondaryText,
                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
+                          font: GoogleFonts.inter(
+                            fontWeight: FontWeight.w500,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         ),
                     unselectedTextStyle: TextStyle(),
                     checkboxBorderRadius: BorderRadius.circular(4.0),
@@ -399,9 +323,17 @@ class _UserSurvey2WidgetState extends State<UserSurvey2Widget> {
                     child: Text(
                       'Additional Notes',
                       style: FlutterFlowTheme.of(context).titleMedium.override(
-                            fontFamily: 'Inter Tight',
+                            font: GoogleFonts.interTight(
+                              fontWeight: FontWeight.w600,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .fontStyle,
+                            ),
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .fontStyle,
                           ),
                     ),
                   ),
@@ -414,13 +346,26 @@ class _UserSurvey2WidgetState extends State<UserSurvey2Widget> {
                       hintStyle: FlutterFlowTheme.of(context)
                           .bodyMedium
                           .override(
-                            fontFamily: 'Inter',
+                            font: GoogleFonts.inter(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
                             color: FlutterFlowTheme.of(context).secondaryText,
                             letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
                           ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).alternate,
+                          color: FlutterFlowTheme.of(context).secondaryText,
                           width: 1.0,
                         ),
                         borderRadius: BorderRadius.circular(8.0),
@@ -451,8 +396,20 @@ class _UserSurvey2WidgetState extends State<UserSurvey2Widget> {
                           FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         ),
                     maxLines: 4,
                     minLines: 4,
@@ -475,26 +432,26 @@ class _UserSurvey2WidgetState extends State<UserSurvey2Widget> {
                         await PreferencesRecord.createDoc(currentUserReference!)
                             .set({
                           ...createPreferencesRecordData(
-                            calTarget: _model.calorieTargetDropDownValue,
                             notes: _model
                                 .additionalNotesTextFieldTextController.text,
-                            calorieTarget: _model.calorieTargetDropDownValue,
-                            weeklyMeal: _model.weeklyMealPrepGoalsDropDownValue,
                             uid: currentUserReference,
-                            cookingExperience:
-                                _model.cookingExperienceDropDownValue,
                             goals: FFAppState().userHealthGoals,
                             gender: FFAppState().userGender,
                             weight: FFAppState().userWeight,
                             height: FFAppState().userHeight,
                             age: FFAppState().userAge.toString(),
+                            dietaryPreferences: _model.dropDownValue,
+                            activityLevel: _model.activityLevelDropDownValue,
+                            calTarget: functions.calorieGoal(
+                                FFAppState().userAge.toString(),
+                                FFAppState().userHeight,
+                                FFAppState().userGender,
+                                _model.activityLevelDropDownValue!,
+                                FFAppState().userWeight,
+                                FFAppState().userHealthGoals),
                           ),
                           ...mapToFirestore(
                             {
-                              'dietary_preferences':
-                                  _model.dietaryPreferencesCheckboxGroupValues,
-                              'allergies_restrictions': _model
-                                  .allergiesRestrictionsCheckboxGroupValues,
                               'favorite_cuisine':
                                   _model.favoriteCuisinesCheckboxGroupValues,
                             },
@@ -514,9 +471,22 @@ class _UserSurvey2WidgetState extends State<UserSurvey2Widget> {
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Inter Tight',
+                                  font: GoogleFonts.interTight(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
                                   color: FlutterFlowTheme.of(context).info,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
                                 ),
                         elevation: 0.0,
                         borderRadius: BorderRadius.circular(8.0),

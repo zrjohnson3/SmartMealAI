@@ -7,31 +7,12 @@ import 'package:flutter/material.dart';
 class UserSurvey2Model extends FlutterFlowModel<UserSurvey2Widget> {
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for DietaryPreferencesCheckboxGroup widget.
-  FormFieldController<List<String>>?
-      dietaryPreferencesCheckboxGroupValueController;
-  List<String>? get dietaryPreferencesCheckboxGroupValues =>
-      dietaryPreferencesCheckboxGroupValueController?.value;
-  set dietaryPreferencesCheckboxGroupValues(List<String>? v) =>
-      dietaryPreferencesCheckboxGroupValueController?.value = v;
-
-  // State field(s) for AllergiesRestrictionsCheckboxGroup widget.
-  FormFieldController<List<String>>?
-      allergiesRestrictionsCheckboxGroupValueController;
-  List<String>? get allergiesRestrictionsCheckboxGroupValues =>
-      allergiesRestrictionsCheckboxGroupValueController?.value;
-  set allergiesRestrictionsCheckboxGroupValues(List<String>? v) =>
-      allergiesRestrictionsCheckboxGroupValueController?.value = v;
-
-  // State field(s) for CookingExperienceDropDown widget.
-  String? cookingExperienceDropDownValue;
-  FormFieldController<String>? cookingExperienceDropDownValueController;
-  // State field(s) for WeeklyMealPrepGoalsDropDown widget.
-  String? weeklyMealPrepGoalsDropDownValue;
-  FormFieldController<String>? weeklyMealPrepGoalsDropDownValueController;
-  // State field(s) for CalorieTargetDropDown widget.
-  String? calorieTargetDropDownValue;
-  FormFieldController<String>? calorieTargetDropDownValueController;
+  // State field(s) for DropDown widget.
+  String? dropDownValue;
+  FormFieldController<String>? dropDownValueController;
+  // State field(s) for ActivityLevelDropDown widget.
+  String? activityLevelDropDownValue;
+  FormFieldController<String>? activityLevelDropDownValueController;
   // State field(s) for FavoriteCuisinesCheckboxGroup widget.
   FormFieldController<List<String>>?
       favoriteCuisinesCheckboxGroupValueController;

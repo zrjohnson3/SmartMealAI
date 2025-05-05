@@ -20,11 +20,6 @@ class PreferencesRecord extends FirestoreRecord {
   String get goals => _goals ?? '';
   bool hasGoals() => _goals != null;
 
-  // "cal_target" field.
-  String? _calTarget;
-  String get calTarget => _calTarget ?? '';
-  bool hasCalTarget() => _calTarget != null;
-
   // "notes" field.
   String? _notes;
   String get notes => _notes ?? '';
@@ -40,20 +35,10 @@ class PreferencesRecord extends FirestoreRecord {
   String get gender => _gender ?? '';
   bool hasGender() => _gender != null;
 
-  // "dietary_preferences" field.
-  List<String>? _dietaryPreferences;
-  List<String> get dietaryPreferences => _dietaryPreferences ?? const [];
-  bool hasDietaryPreferences() => _dietaryPreferences != null;
-
   // "allergies_restrictions" field.
   List<String>? _allergiesRestrictions;
   List<String> get allergiesRestrictions => _allergiesRestrictions ?? const [];
   bool hasAllergiesRestrictions() => _allergiesRestrictions != null;
-
-  // "calorie_target" field.
-  String? _calorieTarget;
-  String get calorieTarget => _calorieTarget ?? '';
-  bool hasCalorieTarget() => _calorieTarget != null;
 
   // "weight" field.
   String? _weight;
@@ -80,29 +65,38 @@ class PreferencesRecord extends FirestoreRecord {
   List<String> get favoriteCuisine => _favoriteCuisine ?? const [];
   bool hasFavoriteCuisine() => _favoriteCuisine != null;
 
-  // "cooking_experience" field.
-  String? _cookingExperience;
-  String get cookingExperience => _cookingExperience ?? '';
-  bool hasCookingExperience() => _cookingExperience != null;
+  // "dietary_preferences" field.
+  String? _dietaryPreferences;
+  String get dietaryPreferences => _dietaryPreferences ?? '';
+  bool hasDietaryPreferences() => _dietaryPreferences != null;
+
+  // "activity_level" field.
+  String? _activityLevel;
+  String get activityLevel => _activityLevel ?? '';
+  bool hasActivityLevel() => _activityLevel != null;
+
+  // "cal_target" field.
+  int? _calTarget;
+  int get calTarget => _calTarget ?? 0;
+  bool hasCalTarget() => _calTarget != null;
 
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
     _goals = snapshotData['goals'] as String?;
-    _calTarget = snapshotData['cal_target'] as String?;
     _notes = snapshotData['notes'] as String?;
     _uid = snapshotData['uid'] as DocumentReference?;
     _gender = snapshotData['gender'] as String?;
-    _dietaryPreferences = getDataList(snapshotData['dietary_preferences']);
     _allergiesRestrictions =
         getDataList(snapshotData['allergies_restrictions']);
-    _calorieTarget = snapshotData['calorie_target'] as String?;
     _weight = snapshotData['weight'] as String?;
     _height = snapshotData['height'] as String?;
     _age = snapshotData['age'] as String?;
     _weeklyMeal = snapshotData['weekly_meal'] as String?;
     _favoriteCuisine = getDataList(snapshotData['favorite_cuisine']);
-    _cookingExperience = snapshotData['cooking_experience'] as String?;
+    _dietaryPreferences = snapshotData['dietary_preferences'] as String?;
+    _activityLevel = snapshotData['activity_level'] as String?;
+    _calTarget = castToType<int>(snapshotData['cal_target']);
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -146,30 +140,30 @@ class PreferencesRecord extends FirestoreRecord {
 
 Map<String, dynamic> createPreferencesRecordData({
   String? goals,
-  String? calTarget,
   String? notes,
   DocumentReference? uid,
   String? gender,
-  String? calorieTarget,
   String? weight,
   String? height,
   String? age,
   String? weeklyMeal,
-  String? cookingExperience,
+  String? dietaryPreferences,
+  String? activityLevel,
+  int? calTarget,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'goals': goals,
-      'cal_target': calTarget,
       'notes': notes,
       'uid': uid,
       'gender': gender,
-      'calorie_target': calorieTarget,
       'weight': weight,
       'height': height,
       'age': age,
       'weekly_meal': weeklyMeal,
-      'cooking_experience': cookingExperience,
+      'dietary_preferences': dietaryPreferences,
+      'activity_level': activityLevel,
+      'cal_target': calTarget,
     }.withoutNulls,
   );
 
@@ -183,38 +177,36 @@ class PreferencesRecordDocumentEquality implements Equality<PreferencesRecord> {
   bool equals(PreferencesRecord? e1, PreferencesRecord? e2) {
     const listEquality = ListEquality();
     return e1?.goals == e2?.goals &&
-        e1?.calTarget == e2?.calTarget &&
         e1?.notes == e2?.notes &&
         e1?.uid == e2?.uid &&
         e1?.gender == e2?.gender &&
-        listEquality.equals(e1?.dietaryPreferences, e2?.dietaryPreferences) &&
         listEquality.equals(
             e1?.allergiesRestrictions, e2?.allergiesRestrictions) &&
-        e1?.calorieTarget == e2?.calorieTarget &&
         e1?.weight == e2?.weight &&
         e1?.height == e2?.height &&
         e1?.age == e2?.age &&
         e1?.weeklyMeal == e2?.weeklyMeal &&
         listEquality.equals(e1?.favoriteCuisine, e2?.favoriteCuisine) &&
-        e1?.cookingExperience == e2?.cookingExperience;
+        e1?.dietaryPreferences == e2?.dietaryPreferences &&
+        e1?.activityLevel == e2?.activityLevel &&
+        e1?.calTarget == e2?.calTarget;
   }
 
   @override
   int hash(PreferencesRecord? e) => const ListEquality().hash([
         e?.goals,
-        e?.calTarget,
         e?.notes,
         e?.uid,
         e?.gender,
-        e?.dietaryPreferences,
         e?.allergiesRestrictions,
-        e?.calorieTarget,
         e?.weight,
         e?.height,
         e?.age,
         e?.weeklyMeal,
         e?.favoriteCuisine,
-        e?.cookingExperience
+        e?.dietaryPreferences,
+        e?.activityLevel,
+        e?.calTarget
       ]);
 
   @override

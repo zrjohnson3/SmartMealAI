@@ -3,11 +3,17 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'bottom_nav_model.dart';
 export 'bottom_nav_model.dart';
 
 class BottomNavWidget extends StatefulWidget {
-  const BottomNavWidget({super.key});
+  const BottomNavWidget({
+    super.key,
+    required this.aiCallback,
+  });
+
+  final Future Function()? aiCallback;
 
   @override
   State<BottomNavWidget> createState() => _BottomNavWidgetState();
@@ -93,9 +99,21 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                   Text(
                     'Home',
                     style: FlutterFlowTheme.of(context).labelSmall.override(
-                          fontFamily: 'Inter',
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .labelSmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .labelSmall
+                                .fontStyle,
+                          ),
                           color: FlutterFlowTheme.of(context).primary,
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelSmall
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).labelSmall.fontStyle,
                         ),
                   ),
                 ],
@@ -127,9 +145,21 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                   Text(
                     'Favorites',
                     style: FlutterFlowTheme.of(context).labelSmall.override(
-                          fontFamily: 'Inter',
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .labelSmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .labelSmall
+                                .fontStyle,
+                          ),
                           color: FlutterFlowTheme.of(context).secondaryText,
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelSmall
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).labelSmall.fontStyle,
                         ),
                   ),
                 ],
@@ -161,9 +191,65 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                   Text(
                     'Create',
                     style: FlutterFlowTheme.of(context).labelSmall.override(
-                          fontFamily: 'Inter',
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .labelSmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .labelSmall
+                                .fontStyle,
+                          ),
                           color: FlutterFlowTheme.of(context).secondaryText,
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelSmall
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).labelSmall.fontStyle,
+                        ),
+                  ),
+                ],
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FlutterFlowIconButton(
+                    borderColor: Colors.transparent,
+                    borderRadius: 30.0,
+                    borderWidth: 1.0,
+                    buttonSize: 50.0,
+                    fillColor: Colors.transparent,
+                    icon: Icon(
+                      Icons.edit_note_outlined,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      size: 24.0,
+                    ),
+                    onPressed: () async {
+                      logFirebaseEvent(
+                          'BOTTOM_NAV_edit_note_outlined_ICN_ON_TAP');
+                      logFirebaseEvent('IconButton_execute_callback');
+                      await widget.aiCallback?.call();
+                    },
+                  ),
+                  Text(
+                    'Summary',
+                    style: FlutterFlowTheme.of(context).labelSmall.override(
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .labelSmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .labelSmall
+                                .fontStyle,
+                          ),
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelSmall
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).labelSmall.fontStyle,
                         ),
                   ),
                 ],
@@ -195,9 +281,21 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                   Text(
                     'Profile',
                     style: FlutterFlowTheme.of(context).labelSmall.override(
-                          fontFamily: 'Inter',
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .labelSmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .labelSmall
+                                .fontStyle,
+                          ),
                           color: FlutterFlowTheme.of(context).secondaryText,
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelSmall
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).labelSmall.fontStyle,
                         ),
                   ),
                 ],

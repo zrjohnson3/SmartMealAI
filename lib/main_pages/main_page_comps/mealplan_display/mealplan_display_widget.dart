@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'mealplan_display_model.dart';
 export 'mealplan_display_model.dart';
 
@@ -117,7 +118,10 @@ class _MealplanDisplayWidgetState extends State<MealplanDisplayWidget> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.network(
-                        widget.mealImage,
+                        valueOrDefault<String>(
+                          widget.mealImage,
+                          'https://search.brave.com/images?q=cartoon+food+image&context=W3sic3JjIjoiaHR0cHM6Ly9pbWdzLnNlYXJjaC5icmF2ZS5jb20vd1lPWXVzY29yOXRld2lpVnNVc0ZuWUJORm9HQVV3aWJUNmo5MW9SZFJGYy9yczpmaXQ6NTAwOjA6MDowL2c6Y2UvYUhSMGNITTZMeTlwYldkei9Mbk5sWVhKamFDNWljbUYyL1pTNWpiMjB2Ym10UGJWOVMvYUUxSmJtRlZVbDkxZURodC9iRTl2VmpKdVRHaFVPRVZxL1FYSlBaa1J2TkU0MlpWOTAvY3k5eWN6cG1hWFE2TlRZdy9Pak15TURveE9qQXZaenBqL1pTOWhTRkl3WTBoTk5reDUvT1RCTmVUVnRMMlJIVG10aS9hVFYxV2xoUmRtRnVRbTR2L1RIcEJNMHg2WXpKTWVsVXkvVEhwbk1pOU1lazB5VFVZNS9SMWg2WXpOT2FsVXlMMDlFL1dYcE9NVGxFVFd0V2QxTXcvVVRNdlZVWmtObVZGU25OVi9TR1JPWTFVMWRTOU9TR015L1dUSXhTbUZHWkVWWlZFWXkvTDFkRE5YRmpSMk0uanBlZyIsInRleHQiOiJjYXJ0b29uIHBsYXRlIG9mIGZvb2QiLCJwYWdlX3VybCI6Imh0dHBzOi8vc3RvY2suYWRvYmUuY29tL3NlYXJjaD9rPWNhcnRvb24rcGxhdGUrb2YrZm9vZCJ9XQ%3D%3D&sig=b7c09bfaffd97f857f375a240943c53b922826afd7c9c315634c8b85feb3fd38&nonce=8051628bd5a9a87f81a0530c90cc56d7&source=llmImg',
+                        ),
                         width: 80.0,
                         height: 80.0,
                         fit: BoxFit.cover,
@@ -137,9 +141,17 @@ class _MealplanDisplayWidgetState extends State<MealplanDisplayWidget> {
                           'N/A',
                         ),
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily: 'Inter',
+                              font: GoogleFonts.inter(
+                                fontWeight: FontWeight.w600,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .fontStyle,
+                              ),
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .fontStyle,
                             ),
                       ),
                       Text(
@@ -148,16 +160,42 @@ class _MealplanDisplayWidgetState extends State<MealplanDisplayWidget> {
                           '0.0',
                         ),
                         style: FlutterFlowTheme.of(context).bodySmall.override(
-                              fontFamily: 'Inter',
+                              font: GoogleFonts.inter(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .fontStyle,
+                              ),
                               color: FlutterFlowTheme.of(context).secondaryText,
                               letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .fontStyle,
                             ),
                       ),
                       Text(
                         widget.mealType,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Inter',
+                              font: GoogleFonts.inter(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
                               letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
                             ),
                       ),
                     ].divide(SizedBox(height: 4.0)),

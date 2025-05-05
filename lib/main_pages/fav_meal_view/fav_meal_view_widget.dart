@@ -3,10 +3,11 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/main_pages/main_page_comps/full_meal_display/full_meal_display_widget.dart';
+import '/main_pages/main_page_comps/fav_meal_display_copy/fav_meal_display_copy_widget.dart';
 import '/main_pages/main_page_comps/meal_information/meal_information_widget.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'fav_meal_view_model.dart';
 export 'fav_meal_view_model.dart';
 
@@ -80,10 +81,16 @@ class _FavMealViewWidgetState extends State<FavMealViewWidget> {
             child: Text(
               'Favorite Meal View',
               style: FlutterFlowTheme.of(context).headlineSmall.override(
-                    fontFamily: 'Inter Tight',
+                    font: GoogleFonts.interTight(
+                      fontWeight: FontWeight.bold,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineSmall.fontStyle,
+                    ),
                     color: FlutterFlowTheme.of(context).primary,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.bold,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineSmall.fontStyle,
                   ),
             ),
           ),
@@ -134,22 +141,24 @@ class _FavMealViewWidgetState extends State<FavMealViewWidget> {
                         itemBuilder: (context, listViewIndex) {
                           final listViewUserMealsRecord =
                               listViewUserMealsRecordList[listViewIndex];
-                          return FullMealDisplayWidget(
+                          return FavMealDisplayCopyWidget(
                             key: Key(
-                                'Keyp9m_${listViewIndex}_of_${listViewUserMealsRecordList.length}'),
+                                'Key981_${listViewIndex}_of_${listViewUserMealsRecordList.length}'),
                             mealName: listViewUserMealsRecord.mealName,
                             mealImage: listViewUserMealsRecord.mealImage,
                             mealCalories: listViewUserMealsRecord
                                 .mealCaloriesInt
                                 .toDouble(),
-                            mealRecipe: listViewUserMealsRecord.mealRecipe,
                             mealCuisine: listViewUserMealsRecord.cuisineType,
                             mealType: listViewUserMealsRecord.mealCategory,
                             isFavorite: listViewUserMealsRecord.isFavorite,
+                            mealMark: listViewUserMealsRecord.mealMark,
+                            mealRecipe: listViewUserMealsRecord.mealRecipe,
                             checkAction: () async {
                               logFirebaseEvent(
-                                  'FAV_MEAL_VIEW_Container_p9mqhcgz_CALLBAC');
-                              logFirebaseEvent('fullMealDisplay_backend_call');
+                                  'FAV_MEAL_VIEW_Container_98146xmk_CALLBAC');
+                              logFirebaseEvent(
+                                  'favMealDisplayCopy_backend_call');
 
                               await listViewUserMealsRecord.reference
                                   .update(createUserMealsRecordData(
@@ -158,8 +167,9 @@ class _FavMealViewWidgetState extends State<FavMealViewWidget> {
                             },
                             deleteAction: () async {
                               logFirebaseEvent(
-                                  'FAV_MEAL_VIEW_Container_p9mqhcgz_CALLBAC');
-                              logFirebaseEvent('fullMealDisplay_backend_call');
+                                  'FAV_MEAL_VIEW_Container_98146xmk_CALLBAC');
+                              logFirebaseEvent(
+                                  'favMealDisplayCopy_backend_call');
 
                               await listViewUserMealsRecord.reference
                                   .update(createUserMealsRecordData(
@@ -168,8 +178,9 @@ class _FavMealViewWidgetState extends State<FavMealViewWidget> {
                             },
                             bottomSheetAction: () async {
                               logFirebaseEvent(
-                                  'FAV_MEAL_VIEW_Container_p9mqhcgz_CALLBAC');
-                              logFirebaseEvent('fullMealDisplay_bottom_sheet');
+                                  'FAV_MEAL_VIEW_Container_98146xmk_CALLBAC');
+                              logFirebaseEvent(
+                                  'favMealDisplayCopy_bottom_sheet');
                               await showModalBottomSheet(
                                 isScrollControlled: true,
                                 backgroundColor: FlutterFlowTheme.of(context)
@@ -201,6 +212,8 @@ class _FavMealViewWidgetState extends State<FavMealViewWidget> {
                                             .mealRecipeURL,
                                         mealServings: listViewUserMealsRecord
                                             .mealServings,
+                                        mealRecipe:
+                                            listViewUserMealsRecord.mealRecipe,
                                       ),
                                     ),
                                   );

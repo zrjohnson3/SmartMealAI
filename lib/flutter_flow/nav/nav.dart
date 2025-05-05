@@ -89,19 +89,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
               : GetStartedWidget(),
         ),
         FFRoute(
-          name: GetStartedWidget.routeName,
-          path: GetStartedWidget.routePath,
-          builder: (context, params) => GetStartedWidget(),
-        ),
-        FFRoute(
           name: CreateAccountTest1Widget.routeName,
           path: CreateAccountTest1Widget.routePath,
           builder: (context, params) => CreateAccountTest1Widget(),
-        ),
-        FFRoute(
-          name: LoginCopyWidget.routeName,
-          path: LoginCopyWidget.routePath,
-          builder: (context, params) => LoginCopyWidget(),
         ),
         FFRoute(
           name: ForgotPasswordWidget.routeName,
@@ -109,49 +99,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => ForgotPasswordWidget(),
         ),
         FFRoute(
-          name: DashboardPlaceHolderWidget.routeName,
-          path: DashboardPlaceHolderWidget.routePath,
-          builder: (context, params) => DashboardPlaceHolderWidget(),
-        ),
-        FFRoute(
-          name: UserSurvey1Widget.routeName,
-          path: UserSurvey1Widget.routePath,
-          builder: (context, params) => UserSurvey1Widget(),
-        ),
-        FFRoute(
-          name: UserSurvey2Widget.routeName,
-          path: UserSurvey2Widget.routePath,
-          builder: (context, params) => UserSurvey2Widget(),
-        ),
-        FFRoute(
-          name: FullMealViewWidget.routeName,
-          path: FullMealViewWidget.routePath,
-          builder: (context, params) => FullMealViewWidget(),
-        ),
-        FFRoute(
-          name: ProfilePageWidget.routeName,
-          path: ProfilePageWidget.routePath,
-          builder: (context, params) => ProfilePageWidget(),
-        ),
-        FFRoute(
-          name: EditProfileAndPrefsPageWidget.routeName,
-          path: EditProfileAndPrefsPageWidget.routePath,
-          builder: (context, params) => EditProfileAndPrefsPageWidget(),
-        ),
-        FFRoute(
-          name: NotifsPageWidget.routeName,
-          path: NotifsPageWidget.routePath,
-          builder: (context, params) => NotifsPageWidget(),
-        ),
-        FFRoute(
-          name: SupportPageWidget.routeName,
-          path: SupportPageWidget.routePath,
-          builder: (context, params) => SupportPageWidget(),
-        ),
-        FFRoute(
-          name: TosPageWidget.routeName,
-          path: TosPageWidget.routePath,
-          builder: (context, params) => TosPageWidget(),
+          name: NoRecentMealPlansWidget.routeName,
+          path: NoRecentMealPlansWidget.routePath,
+          builder: (context, params) => NoRecentMealPlansWidget(),
         ),
         FFRoute(
           name: FavMealViewWidget.routeName,
@@ -159,19 +109,29 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => FavMealViewWidget(),
         ),
         FFRoute(
-          name: AskAiPageWidget.routeName,
-          path: AskAiPageWidget.routePath,
-          builder: (context, params) => AskAiPageWidget(),
+          name: TosPageWidget.routeName,
+          path: TosPageWidget.routePath,
+          builder: (context, params) => TosPageWidget(),
         ),
         FFRoute(
-          name: EmailPageWidget.routeName,
-          path: EmailPageWidget.routePath,
-          builder: (context, params) => EmailPageWidget(),
+          name: PrivacyPolPageWidget.routeName,
+          path: PrivacyPolPageWidget.routePath,
+          builder: (context, params) => PrivacyPolPageWidget(),
         ),
         FFRoute(
-          name: SearchFaqPageWidget.routeName,
-          path: SearchFaqPageWidget.routePath,
-          builder: (context, params) => SearchFaqPageWidget(),
+          name: GetStartedWidget.routeName,
+          path: GetStartedWidget.routePath,
+          builder: (context, params) => GetStartedWidget(),
+        ),
+        FFRoute(
+          name: LoginCopyWidget.routeName,
+          path: LoginCopyWidget.routePath,
+          builder: (context, params) => LoginCopyWidget(),
+        ),
+        FFRoute(
+          name: UserSurvey1Widget.routeName,
+          path: UserSurvey1Widget.routePath,
+          builder: (context, params) => UserSurvey1Widget(),
         ),
         FFRoute(
           name: SurveyFoodOptionWidget.routeName,
@@ -179,14 +139,29 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => SurveyFoodOptionWidget(),
         ),
         FFRoute(
-          name: NoRecentMealPlansWidget.routeName,
-          path: NoRecentMealPlansWidget.routePath,
-          builder: (context, params) => NoRecentMealPlansWidget(),
-        ),
-        FFRoute(
           name: DashboardWidget.routeName,
           path: DashboardWidget.routePath,
           builder: (context, params) => DashboardWidget(),
+        ),
+        FFRoute(
+          name: ProfilePageWidget.routeName,
+          path: ProfilePageWidget.routePath,
+          builder: (context, params) => ProfilePageWidget(),
+        ),
+        FFRoute(
+          name: UserSurvey2Widget.routeName,
+          path: UserSurvey2Widget.routePath,
+          builder: (context, params) => UserSurvey2Widget(),
+        ),
+        FFRoute(
+          name: EditProfileAndPrefsPageWidget.routeName,
+          path: EditProfileAndPrefsPageWidget.routePath,
+          builder: (context, params) => EditProfileAndPrefsPageWidget(),
+        ),
+        FFRoute(
+          name: FullMealViewWidget.routeName,
+          path: FullMealViewWidget.routePath,
+          builder: (context, params) => FullMealViewWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

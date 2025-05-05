@@ -8,11 +8,19 @@ import '/flutter_flow/form_field_controller.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'edit_fav_foods_prefs_model.dart';
 export 'edit_fav_foods_prefs_model.dart';
 
 class EditFavFoodsPrefsWidget extends StatefulWidget {
-  const EditFavFoodsPrefsWidget({super.key});
+  const EditFavFoodsPrefsWidget({
+    super.key,
+    required this.exitAction,
+    required this.callbackAction,
+  });
+
+  final Future Function()? exitAction;
+  final Future Function()? callbackAction;
 
   @override
   State<EditFavFoodsPrefsWidget> createState() =>
@@ -90,17 +98,26 @@ class _EditFavFoodsPrefsWidgetState extends State<EditFavFoodsPrefsWidget> {
                   onPressed: () async {
                     logFirebaseEvent(
                         'EDIT_FAV_FOODS_PREFS_arrow_back_ICN_ON_T');
-                    logFirebaseEvent('IconButton_bottom_sheet');
-                    Navigator.pop(context);
+                    logFirebaseEvent('IconButton_execute_callback');
+                    await widget.exitAction?.call();
                   },
                 ),
               ],
             ),
             Text(
-              'Favorite Foods',
+              'Favorite Cuisine',
               style: FlutterFlowTheme.of(context).headlineSmall.override(
-                    fontFamily: 'Inter Tight',
+                    font: GoogleFonts.interTight(
+                      fontWeight:
+                          FlutterFlowTheme.of(context).headlineSmall.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineSmall.fontStyle,
+                    ),
                     letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineSmall.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineSmall.fontStyle,
                   ),
             ),
             FlutterFlowCheckboxGroup(
@@ -114,8 +131,17 @@ class _EditFavFoodsPrefsWidgetState extends State<EditFavFoodsPrefsWidget> {
                 'Middle Eastern',
                 'French'
               ],
-              onChanged: (val) => safeSetState(
-                  () => _model.favoriteCuisinesCheckboxGroupValues = val),
+              onChanged: (val) async {
+                safeSetState(
+                    () => _model.favoriteCuisinesCheckboxGroupValues = val);
+                logFirebaseEvent('EDIT_FAV_FOODS_PREFS_FavoriteCuisinesChe');
+                logFirebaseEvent('FavoriteCuisinesCheckboxGroup_update_app');
+                FFAppState().favCuisine = _model
+                    .favoriteCuisinesCheckboxGroupValues!
+                    .toList()
+                    .cast<String>();
+                safeSetState(() {});
+              },
               controller:
                   _model.favoriteCuisinesCheckboxGroupValueController ??=
                       FormFieldController<List<String>>(
@@ -125,8 +151,17 @@ class _EditFavFoodsPrefsWidgetState extends State<EditFavFoodsPrefsWidget> {
               checkColor: FlutterFlowTheme.of(context).info,
               checkboxBorderColor: FlutterFlowTheme.of(context).secondaryText,
               textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Inter',
+                    font: GoogleFonts.inter(
+                      fontWeight:
+                          FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                    ),
                     letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                   ),
               checkboxBorderRadius: BorderRadius.circular(4.0),
               initialized: _model.favoriteCuisinesCheckboxGroupValues != null,
@@ -134,18 +169,8 @@ class _EditFavFoodsPrefsWidgetState extends State<EditFavFoodsPrefsWidget> {
             FFButtonWidget(
               onPressed: () async {
                 logFirebaseEvent('EDIT_FAV_FOODS_PREFS_favFoodConfirm_ON_T');
-                logFirebaseEvent('favFoodConfirm_backend_call');
-
-                await _model.testout!.reference.update({
-                  ...mapToFirestore(
-                    {
-                      'favorite_cuisine':
-                          _model.favoriteCuisinesCheckboxGroupValues,
-                    },
-                  ),
-                });
-                logFirebaseEvent('favFoodConfirm_bottom_sheet');
-                Navigator.pop(context);
+                logFirebaseEvent('favFoodConfirm_execute_callback');
+                await widget.callbackAction?.call();
               },
               text: 'Confirm',
               options: FFButtonOptions(
@@ -154,9 +179,18 @@ class _EditFavFoodsPrefsWidgetState extends State<EditFavFoodsPrefsWidget> {
                 iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: FlutterFlowTheme.of(context).primary,
                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                      fontFamily: 'Inter Tight',
+                      font: GoogleFonts.interTight(
+                        fontWeight:
+                            FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                      ),
                       color: Colors.white,
                       letterSpacing: 0.0,
+                      fontWeight:
+                          FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).titleSmall.fontStyle,
                     ),
                 elevation: 0.0,
                 borderRadius: BorderRadius.circular(8.0),

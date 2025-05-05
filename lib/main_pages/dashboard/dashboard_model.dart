@@ -20,6 +20,8 @@ class DashboardModel extends FlutterFlowModel<DashboardWidget> {
 
   String chats = 'N/A';
 
+  int? tempCals;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [AI Agent - Send Message to aiAgentAnthony] action in mealplanDisplay widget.
@@ -28,6 +30,8 @@ class DashboardModel extends FlutterFlowModel<DashboardWidget> {
   late NutritionBarModel nutritionBarModel;
   // Model for bottomNav component.
   late BottomNavModel bottomNavModel;
+  // Stores action output result for [AI Agent - Send Message to aiAgentSummaryAnthony] action in bottomNav widget.
+  String? aiAgentSummary;
 
   @override
   void initState(BuildContext context) {

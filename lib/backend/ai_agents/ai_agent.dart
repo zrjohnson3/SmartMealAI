@@ -13,6 +13,8 @@ import 'ai_agent_cloud_function_call.dart';
 /// * [audioAsset] - An uploaded audio file to send to the agent (optional).
 /// * [videoUrl] - A URL to a video to send to the agent (optional).
 /// * [videoAsset] - An uploaded video file to send to the agent (optional).
+/// * [pdfUrl] - Optional URL of a PDF to include in the message.
+/// * [pdfAsset] - Optional PDF file to include in the message.
 /// * [threadId] - A local identifier for the conversation thread.
 /// * [agentCloudFunctionName] - The name of the cloud function to call for the agent.
 /// * [provider] - The AI provider (e.g. 'OPENAI', 'GOOGLE').
@@ -32,6 +34,8 @@ Future<dynamic> callAiAgent({
   FFUploadedFile? audioAsset,
   String? videoUrl,
   FFUploadedFile? videoAsset,
+  String? pdfUrl,
+  FFUploadedFile? pdfAsset,
   required String threadId,
   required String agentCloudFunctionName,
   required String provider,
@@ -55,6 +59,8 @@ Future<dynamic> callAiAgent({
           audioAsset: audioAsset,
           videoUrl: videoUrl,
           videoAsset: videoAsset,
+          pdfUrl: pdfUrl,
+          pdfAsset: pdfAsset,
         );
       case 'OPENAI':
       case 'ANTHROPIC':
@@ -65,6 +71,7 @@ Future<dynamic> callAiAgent({
           threadId: threadId,
           provider: provider,
           imageUrl: imageUrl,
+          pdfUrl: pdfUrl,
         );
 
         if (response != null && responseType == 'JSON') {

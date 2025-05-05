@@ -43,6 +43,10 @@ class SurveyFoodOptionModel extends FlutterFlowModel<SurveyFoodOptionWidget> {
 
   bool isPressedDinner = false;
 
+  String? cautionValue;
+
+  int? caloriesValue;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - API (EdamamAPICallBreakfast)] action in confirmBtn widget.
