@@ -68,6 +68,7 @@ This application is ideal for individuals seeking:
 
 ### Client
 
+* FlutterFlow 
 * Flutter (via FlutterFlow)
 * Dart
 
@@ -76,10 +77,7 @@ This application is ideal for individuals seeking:
 * Firebase Auth, Firestore, Storage
 * Firebase Cloud Functions
 * Google Vertex AI (for text + recipe generation)
-
-### DevOps
-
-* GitHub Actions (CI/CD)
+* Edenam API - Meal Creation 
 
 ---
 
