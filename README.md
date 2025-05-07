@@ -1,309 +1,173 @@
-<!--
-Hey, thanks for using the awesome-readme-template template.  
-If you have any enhancements, then fork this project and create a pull request 
-or just open an issue with the label "enhancement".
+# 🥗 SmartMeal AI
 
-Don't forget to give this project a star for additional support ;)
-Maybe you can mention me or this repo in the acknowledgements too
--->
 <div align="center">
-
-  <img src="assets/logo.png" alt="logo" width="200" height="auto" />
-  <h1>Awesome Readme Template</h1>
-  
-  <p>
-    An awesome README template for your projects! 
-  </p>
-  
-  
-<!-- Badges -->
-<p>
-  <a href="https://github.com/Louis3797/awesome-readme-template/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/Louis3797/awesome-readme-template" alt="contributors" />
-  </a>
-  <a href="">
-    <img src="https://img.shields.io/github/last-commit/Louis3797/awesome-readme-template" alt="last update" />
-  </a>
-  <a href="https://github.com/Louis3797/awesome-readme-template/network/members">
-    <img src="https://img.shields.io/github/forks/Louis3797/awesome-readme-template" alt="forks" />
-  </a>
-  <a href="https://github.com/Louis3797/awesome-readme-template/stargazers">
-    <img src="https://img.shields.io/github/stars/Louis3797/awesome-readme-template" alt="stars" />
-  </a>
-  <a href="https://github.com/Louis3797/awesome-readme-template/issues/">
-    <img src="https://img.shields.io/github/issues/Louis3797/awesome-readme-template" alt="open issues" />
-  </a>
-  <a href="https://github.com/Louis3797/awesome-readme-template/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/Louis3797/awesome-readme-template.svg" alt="license" />
-  </a>
-</p>
-   
-<h4>
-    <a href="https://github.com/Louis3797/awesome-readme-template/">View Demo</a>
-  <span> · </span>
-    <a href="https://github.com/Louis3797/awesome-readme-template">Documentation</a>
-  <span> · </span>
-    <a href="https://github.com/Louis3797/awesome-readme-template/issues/">Report Bug</a>
-  <span> · </span>
-    <a href="https://github.com/Louis3797/awesome-readme-template/issues/">Request Feature</a>
-  </h4>
+  <img src="assets/images/smartMealLogo1-removebg-preview.png" alt="SmartMeal AI Logo" width="200" height="auto" />
+  <h3>An AI-powered smart meal planning assistant for health, fitness, and dietary optimization</h3>
 </div>
 
-<br />
+---
 
-<!-- Table of Contents -->
-# :notebook_with_decorative_cover: Table of Contents
+![Contributors](https://img.shields.io/github/contributors/zrjohnson3/SmartMealAI)
+![Last Commit](https://img.shields.io/github/last-commit/zrjohnson3/SmartMealAI)
+![Issues](https://img.shields.io/github/issues/zrjohnson3/SmartMealAI)
+![License](https://img.shields.io/github/license/zrjohnson3/SmartMealAI)
 
-- [About the Project](#star2-about-the-project)
-  * [Screenshots](#camera-screenshots)
-  * [Tech Stack](#space_invader-tech-stack)
-  * [Features](#dart-features)
-  * [Color Reference](#art-color-reference)
-  * [Environment Variables](#key-environment-variables)
-- [Getting Started](#toolbox-getting-started)
-  * [Prerequisites](#bangbang-prerequisites)
-  * [Installation](#gear-installation)
-  * [Running Tests](#test_tube-running-tests)
-  * [Run Locally](#running-run-locally)
-  * [Deployment](#triangular_flag_on_post-deployment)
-- [Usage](#eyes-usage)
-- [Roadmap](#compass-roadmap)
-- [Contributing](#wave-contributing)
-  * [Code of Conduct](#scroll-code-of-conduct)
-- [FAQ](#grey_question-faq)
-- [License](#warning-license)
-- [Contact](#handshake-contact)
-- [Acknowledgements](#gem-acknowledgements)
+---
 
-  
+## 📖 Table of Contents
 
-<!-- About the Project -->
-## :star2: About the Project
+* [About](#about)
 
+  * [Screenshots](#screenshots)
+  * [Features](#features)
+  * [Tech Stack](#tech-stack)
+* [Getting Started](#getting-started)
+* [Usage](#usage)
+* [Roadmap](#roadmap)
+* [Contributing](#contributing)
+* [License](#license)
+* [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
 
-<!-- Screenshots -->
-### :camera: Screenshots
+---
 
-<div align="center"> 
-  <img src="https://placehold.co/600x400?text=Your+Screenshot+here" alt="screenshot" />
+## 🌟 About
+
+SmartMeal AI is a personalized meal planning application powered by artificial intelligence. Built with FlutterFlow and Firebase, this app allows users to set health goals, receive meal recommendations, and track nutritional progress through an intuitive mobile UI.
+
+This application is ideal for individuals seeking:
+
+* Weight loss or muscle gain
+* Meal prep planning
+* Dietary accommodations (e.g. vegan, keto)
+* AI-generated recipes based on preferences
+
+## 🖼️ Screenshots
+
+<div align="center">
+  <img src="assets/screens/flow_get_started.png" width="300" alt="Get Started" />
+  <img src="assets/screens/flow_user_survey.png" width="300" alt="Survey" />
+  <img src="assets/screens/flow_dashboard.png" width="300" alt="Dashboard" />
 </div>
 
+---
 
-<!-- TechStack -->
-### :space_invader: Tech Stack
+## 🚀 Features
 
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://www.typescriptlang.org/">Typescript</a></li>
-    <li><a href="https://nextjs.org/">Next.js</a></li>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-    <li><a href="https://tailwindcss.com/">TailwindCSS</a></li>
-  </ul>
-</details>
+* 🔐 Firebase Authentication
+* 🧠 AI Recipe Generation via Google Cloud / Vertex AI
+* 🍽️ Nutrition Dashboard with Personalized Meal Plans
+* 📋 Health Goal Tracking
+* 🎯 Onboarding Surveys (age, goal, diet, favorites)
+* 🔁 Weekly Prep Goals + Progress Tracking
+* 🧩 Modular UI with FlutterFlow
 
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://www.typescriptlang.org/">Typescript</a></li>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-    <li><a href="https://go.dev/">Golang</a></li>
-    <li><a href="https://nestjs.com/">Nest.js</a></li>
-    <li><a href="https://socket.io/">SocketIO</a></li>
-    <li><a href="https://www.prisma.io/">Prisma</a></li>    
-    <li><a href="https://www.apollographql.com/">Apollo</a></li>
-    <li><a href="https://graphql.org/">GraphQL</a></li>
-  </ul>
-</details>
+---
 
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.mysql.com/">MySQL</a></li>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-    <li><a href="https://redis.io/">Redis</a></li>
-    <li><a href="https://neo4j.com/">Neo4j</a></li>
-    <li><a href="https://www.mongodb.com/">MongoDB</a></li>
-  </ul>
-</details>
+## 🛠 Tech Stack
 
-<details>
-<summary>DevOps</summary>
-  <ul>
-    <li><a href="https://www.docker.com/">Docker</a></li>
-    <li><a href="https://www.jenkins.io/">Jenkins</a></li>
-    <li><a href="https://circleci.com/">CircleCLI</a></li>
-  </ul>
-</details>
+### Client
 
-<!-- Features -->
-### :dart: Features
+* Flutter (via FlutterFlow)
+* Dart
 
-- Feature 1
-- Feature 2
-- Feature 3
+### Backend / Services
 
-<!-- Color Reference -->
-### :art: Color Reference
+* Firebase Auth, Firestore, Storage
+* Firebase Cloud Functions
+* Google Vertex AI (for text + recipe generation)
 
-| Color             | Hex                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| Primary Color | ![#222831](https://via.placeholder.com/10/222831?text=+) #222831 |
-| Secondary Color | ![#393E46](https://via.placeholder.com/10/393E46?text=+) #393E46 |
-| Accent Color | ![#00ADB5](https://via.placeholder.com/10/00ADB5?text=+) #00ADB5 |
-| Text Color | ![#EEEEEE](https://via.placeholder.com/10/EEEEEE?text=+) #EEEEEE |
+### DevOps
 
+* GitHub Actions (CI/CD)
 
-<!-- Env Variables -->
-### :key: Environment Variables
+---
 
-To run this project, you will need to add the following environment variables to your .env file
+## 🧰 Getting Started
 
-`API_KEY`
+### Prerequisites
 
-`ANOTHER_API_KEY`
+* Flutter SDK
+* Firebase CLI
+* Dart >= 3.0
 
-<!-- Getting Started -->
-## 	:toolbox: Getting Started
-
-<!-- Prerequisites -->
-### :bangbang: Prerequisites
-
-This project uses Yarn as package manager
+### Installation
 
 ```bash
- npm install --global yarn
+git clone https://github.com/zrjohnson3/SmartMealAI.git
+cd SmartMealAI
+flutter pub get
+firebase login
+firebase use --add
 ```
 
-<!-- Installation -->
-### :gear: Installation
-
-Install my-project with npm
+### Running the App
 
 ```bash
-  yarn install my-project
-  cd my-project
+flutter run
 ```
-   
-<!-- Running Tests -->
-### :test_tube: Running Tests
 
-To run tests, run the following command
+### Running Integration Tests
 
 ```bash
-  yarn test test
+flutter test integration_test/test.dart
 ```
 
-<!-- Run Locally -->
-### :running: Run Locally
+---
 
-Clone the project
+## 📦 Usage
 
-```bash
-  git clone https://github.com/Louis3797/awesome-readme-template.git
-```
+1. Launch app
+2. Click **Get Started**
+3. Complete onboarding survey (age, goals, preferences)
+4. SmartMeal AI generates your personalized plan
+5. View dashboard, swap meals, edit prep goals
 
-Go to the project directory
+---
 
-```bash
-  cd my-project
-```
+## 🧭 Roadmap
 
-Install dependencies
+* [x] User Authentication
+* [x] AI Meal Generator
+* [x] Health Goal Surveys
+* [ ] Smart grocery list generator
+* [ ] Cross-platform sync
+* [ ] Premium account upgrades
 
-```bash
-  yarn install
-```
+---
 
-Start the server
+## 🤝 Contributing
 
-```bash
-  yarn start
-```
+We welcome contributions! Check out the [`CONTRIBUTING.md`](CONTRIBUTING.md) and create a feature branch off `main`.
 
+### 🧾 Code of Conduct
 
-<!-- Deployment -->
-### :triangular_flag_on_post: Deployment
+Please follow our [Code of Conduct](doc/CONDUCT.md).
 
-To deploy this project run
+---
 
-```bash
-  yarn deploy
-```
+## ⚖️ License
 
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-<!-- Usage -->
-## :eyes: Usage
+---
 
-Use this space to tell a little more about your project and how it can be used. Show additional screenshots, code samples, demos or link to other resources.
+## 📬 Contact
 
+Zachary Johnson
+📧 [zrjohnson3@gmail.com](mailto:zrjohnson3@gmail.com)
+🔗 [LinkedIn](https://www.linkedin.com/in/zrjohnson3)
+🔗 Project: [SmartMealAI GitHub](https://github.com/zrjohnson3/SmartMealAI)
 
-```javascript
-import Component from 'my-project'
+---
 
-function App() {
-  return <Component />
-}
-```
+## 💎 Acknowledgements
 
-<!-- Roadmap -->
-## :compass: Roadmap
+* [FlutterFlow](https://flutterflow.io)
+* [Firebase](https://firebase.google.com)
+* [Vertex AI](https://cloud.google.com/vertex-ai)
+* [Awesome README Template](https://github.com/Louis3797/awesome-readme-template)
+* [Shields.io](https://shields.io/)
+* [OpenAI](https://openai.com)
 
-* [x] Todo 1
-* [ ] Todo 2
-
-
-<!-- Contributing -->
-## :wave: Contributing
-
-<a href="https://github.com/Louis3797/awesome-readme-template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Louis3797/awesome-readme-template" />
-</a>
-
-
-Contributions are always welcome!
-
-See `contributing.md` for ways to get started.
-
-
-<!-- Code of Conduct -->
-### :scroll: Code of Conduct
-
-Please read the [Code of Conduct](https://github.com/Louis3797/awesome-readme-template/blob/master/CODE_OF_CONDUCT.md)
-
-<!-- FAQ -->
-## :grey_question: FAQ
-
-- Question 1
-
-  + Answer 1
-
-- Question 2
-
-  + Answer 2
-
-
-<!-- License -->
-## :warning: License
-
-Distributed under the no License. See LICENSE.txt for more information.
-
-
-<!-- Contact -->
-## :handshake: Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/Louis3797/awesome-readme-template](https://github.com/Louis3797/awesome-readme-template)
-
-
-<!-- Acknowledgments -->
-## :gem: Acknowledgements
-
-Use this section to mention useful resources and libraries that you have used in your projects.
-
- - [Shields.io](https://shields.io/)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#travel--places)
- - [Readme Template](https://github.com/othneildrew/Best-README-Template)
-
+---
