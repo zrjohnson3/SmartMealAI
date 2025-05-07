@@ -560,7 +560,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
               FlutterFlowAdBanner(
                 width: MediaQuery.sizeOf(context).width * 1.0,
                 height: 64.4,
-                showsTestAd: true,
+                showsTestAd: false,
                 androidAdUnitID: 'ca-app-pub-3096773500918906/5959722893',
               ),
               StreamBuilder<List<PreferencesRecord>>(

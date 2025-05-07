@@ -35,9 +35,6 @@ class _UserSurvey1WidgetState extends State<UserSurvey1Widget> {
     _model.ageTxtTextController ??= TextEditingController();
     _model.ageTxtFocusNode ??= FocusNode();
 
-    _model.heightTxtTextController ??= TextEditingController();
-    _model.heightTxtFocusNode ??= FocusNode();
-
     _model.weightTxtTextController ??= TextEditingController();
     _model.weightTxtFocusNode ??= FocusNode();
 
@@ -219,6 +216,7 @@ class _UserSurvey1WidgetState extends State<UserSurvey1Widget> {
                                 child: Container(
                                   width: double.infinity,
                                   child: TextFormField(
+                                    key: ValueKey('ageTxt_acx7'),
                                     controller: _model.ageTxtTextController,
                                     focusNode: _model.ageTxtFocusNode,
                                     autofocus: false,
@@ -466,118 +464,52 @@ class _UserSurvey1WidgetState extends State<UserSurvey1Widget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 30.0),
-                                child: Container(
+                                    0.0, 0.0, 0.0, 24.0),
+                                child: FlutterFlowDropDown<String>(
+                                  controller:
+                                      _model.heightDrpDnValueController ??=
+                                          FormFieldController<String>(null),
+                                  options: [
+                                    '4\'6',
+                                    '4\'7',
+                                    '4\'8',
+                                    '4\'9',
+                                    '4\'10',
+                                    '4\'11',
+                                    '5\'0',
+                                    '5\'1',
+                                    '5\'2',
+                                    '5\'3',
+                                    '5\'4',
+                                    '5\'5',
+                                    '5\'6',
+                                    '5\'7',
+                                    '5\'8',
+                                    '5\'9',
+                                    '5\'10',
+                                    '5\'11',
+                                    '6\'0',
+                                    '6\'1',
+                                    '6\'2',
+                                    '6\'3',
+                                    '6\'4',
+                                    '6\'5',
+                                    '6\'6',
+                                    '6\'7',
+                                    '6\'8',
+                                    '6\'9',
+                                    '6\'10',
+                                    '6\'11',
+                                    '7\'0'
+                                  ],
+                                  onChanged: (val) => safeSetState(
+                                      () => _model.heightDrpDnValue = val),
                                   width: double.infinity,
-                                  child: TextFormField(
-                                    controller: _model.heightTxtTextController,
-                                    focusNode: _model.heightTxtFocusNode,
-                                    autofocus: false,
-                                    textInputAction: TextInputAction.next,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      isDense: true,
-                                      labelStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .override(
-                                            font: GoogleFonts.inter(
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .fontStyle,
-                                            ),
-                                            letterSpacing: 0.0,
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .fontStyle,
-                                          ),
-                                      hintText: 'e.g., 5\'8',
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .override(
-                                            font: GoogleFonts.inter(
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .fontStyle,
-                                            ),
-                                            letterSpacing: 0.0,
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .fontStyle,
-                                          ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      errorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .error,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      focusedErrorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .error,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      filled: true,
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          font: GoogleFonts.inter(
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                          fontSize: 22.0,
-                                          letterSpacing: 0.0,
+                                  height: 50.0,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: GoogleFonts.inter(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .bodyMedium
@@ -587,12 +519,32 @@ class _UserSurvey1WidgetState extends State<UserSurvey1Widget> {
                                                   .bodyMedium
                                                   .fontStyle,
                                         ),
-                                    cursorColor: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    validator: _model
-                                        .heightTxtTextControllerValidator
-                                        .asValidator(context),
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                  hintText: 'Select your height',
+                                  icon: Icon(
+                                    Icons.keyboard_arrow_down_rounded,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
                                   ),
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  elevation: 2.0,
+                                  borderColor: Colors.black,
+                                  borderWidth: 1.0,
+                                  borderRadius: 8.0,
+                                  margin: EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 0.0, 0.0, 0.0),
+                                  hidesUnderline: true,
+                                  isSearchable: false,
+                                  isMultiSelect: false,
                                 ),
                               ),
                               Container(),
@@ -878,7 +830,7 @@ class _UserSurvey1WidgetState extends State<UserSurvey1Widget> {
                                     FFAppState().userGender =
                                         _model.genderDropDnValue!;
                                     FFAppState().userHeight =
-                                        _model.heightTxtTextController.text;
+                                        _model.heightDrpDnValue!;
                                     FFAppState().userWeight =
                                         _model.weightTxtTextController.text;
                                     FFAppState().userHealthGoals =

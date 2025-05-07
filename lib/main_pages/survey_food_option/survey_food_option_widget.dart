@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/main_pages/main_page_comps/refresh_meal_alert/refresh_meal_alert_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/material.dart';
@@ -1073,6 +1074,41 @@ class _SurveyFoodOptionWidgetState extends State<SurveyFoodOptionWidget> {
                                                         .secondary,
                                               ),
                                             );
+                                            logFirebaseEvent(
+                                                'confirmBtn_bottom_sheet');
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return GestureDetector(
+                                                  onTap: () {
+                                                    FocusScope.of(context)
+                                                        .unfocus();
+                                                    FocusManager
+                                                        .instance.primaryFocus
+                                                        ?.unfocus();
+                                                  },
+                                                  child: Padding(
+                                                    padding:
+                                                        MediaQuery.viewInsetsOf(
+                                                            context),
+                                                    child:
+                                                        RefreshMealAlertWidget(
+                                                      messageText: 'API Failed',
+                                                      closeDialog: () async {
+                                                        logFirebaseEvent(
+                                                            '_bottom_sheet');
+                                                        Navigator.pop(context);
+                                                      },
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
                                           }
                                         }),
                                         Future(() async {

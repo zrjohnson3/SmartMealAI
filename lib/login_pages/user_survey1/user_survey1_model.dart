@@ -14,10 +14,9 @@ class UserSurvey1Model extends FlutterFlowModel<UserSurvey1Widget> {
   // State field(s) for genderDropDn widget.
   String? genderDropDnValue;
   FormFieldController<String>? genderDropDnValueController;
-  // State field(s) for heightTxt widget.
-  FocusNode? heightTxtFocusNode;
-  TextEditingController? heightTxtTextController;
-  String? Function(BuildContext, String?)? heightTxtTextControllerValidator;
+  // State field(s) for heightDrpDn widget.
+  String? heightDrpDnValue;
+  FormFieldController<String>? heightDrpDnValueController;
   // State field(s) for weightTxt widget.
   FocusNode? weightTxtFocusNode;
   TextEditingController? weightTxtTextController;
@@ -33,9 +32,6 @@ class UserSurvey1Model extends FlutterFlowModel<UserSurvey1Widget> {
   void dispose() {
     ageTxtFocusNode?.dispose();
     ageTxtTextController?.dispose();
-
-    heightTxtFocusNode?.dispose();
-    heightTxtTextController?.dispose();
 
     weightTxtFocusNode?.dispose();
     weightTxtTextController?.dispose();

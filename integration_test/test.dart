@@ -32,6 +32,80 @@ void main() async {
   });
 
   group('Zach\'s Test Cases', () {
+    testWidgets('Create New Acccont Success NEW', (WidgetTester tester) async {
+      _overrideOnError();
+
+      await tester.pumpWidget(ChangeNotifierProvider(
+        create: (context) => FFAppState(),
+        child: const MyApp(),
+      ));
+      await GoogleFonts.pendingFonts();
+
+      await tester.pumpAndSettle(
+        const Duration(milliseconds: 10000),
+        EnginePhase.sendSemanticsUpdate,
+        const Duration(milliseconds: 1000),
+      );
+      await tester.tap(find.descendant(
+        of: find.byKey(const ValueKey('GlowingButton_6xa6')),
+        matching: find.byKey(const ValueKey('Button_1eym')),
+      ));
+      await tester.pumpAndSettle(
+        const Duration(milliseconds: 10000),
+        EnginePhase.sendSemanticsUpdate,
+        const Duration(milliseconds: 1000),
+      );
+      await tester.tap(find.byKey(const ValueKey('emailAddress_Create_2cvo')));
+      await tester.pumpAndSettle(
+        const Duration(milliseconds: 10000),
+        EnginePhase.sendSemanticsUpdate,
+        const Duration(milliseconds: 1000),
+      );
+      await tester.enterText(
+          find.byKey(const ValueKey('emailAddress_Create_2cvo')),
+          'zj_test123@gmail.com');
+      await tester.pumpAndSettle(
+        const Duration(milliseconds: 10000),
+        EnginePhase.sendSemanticsUpdate,
+        const Duration(milliseconds: 1000),
+      );
+      await tester.tap(find.byKey(const ValueKey('password_Create_lung')));
+      await tester.pumpAndSettle(
+        const Duration(milliseconds: 10000),
+        EnginePhase.sendSemanticsUpdate,
+        const Duration(milliseconds: 1000),
+      );
+      await tester.enterText(
+          find.byKey(const ValueKey('password_Create_lung')), 'password');
+      await tester.pumpAndSettle(
+        const Duration(milliseconds: 10000),
+        EnginePhase.sendSemanticsUpdate,
+        const Duration(milliseconds: 1000),
+      );
+      await tester
+          .tap(find.byKey(const ValueKey('password_CreateConfirm_g8z7')));
+      await tester.pumpAndSettle(
+        const Duration(milliseconds: 10000),
+        EnginePhase.sendSemanticsUpdate,
+        const Duration(milliseconds: 1000),
+      );
+      await tester.enterText(
+          find.byKey(const ValueKey('password_CreateConfirm_g8z7')),
+          'password');
+      await tester.pumpAndSettle(
+        const Duration(milliseconds: 10000),
+        EnginePhase.sendSemanticsUpdate,
+        const Duration(milliseconds: 1000),
+      );
+      await tester.tap(find.byKey(const ValueKey('Get_Started_Button_ji47')));
+      await tester.pumpAndSettle(
+        const Duration(milliseconds: 10000),
+        EnginePhase.sendSemanticsUpdate,
+        const Duration(milliseconds: 1000),
+      );
+      expect(find.byKey(const ValueKey('ageTxt_acx7')), findsOneWidget);
+    });
+
     testWidgets('Create New Acccont Success', (WidgetTester tester) async {
       _overrideOnError();
 
